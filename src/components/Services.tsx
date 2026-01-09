@@ -95,7 +95,7 @@ const Services = () => {
   const activeServiceData = services[activeService];
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-muted/50 to-background relative overflow-hidden">
+    <section id="services" className="py-24 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
@@ -134,7 +134,7 @@ const Services = () => {
                     <div className={cn(
                       "w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300",
                       isActive 
-                        ? `bg-gradient-to-br ${service.gradient} shadow-lg` 
+                        ? "bg-primary shadow-lg" 
                         : "bg-muted"
                     )}>
                       <Icon className={cn(
@@ -162,13 +162,11 @@ const Services = () => {
             {/* Active Service Details */}
             <div className="lg:col-span-3">
               <div className={cn(
-                "bg-gradient-to-br rounded-3xl p-8 md:p-10 h-full",
-                activeServiceData.bgGradient
+                "bg-card rounded-3xl p-8 md:p-10 h-full border border-border"
               )}>
                 <div className="flex items-center gap-4 mb-6">
                   <div className={cn(
-                    "w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br shadow-xl",
-                    activeServiceData.gradient
+                    "w-16 h-16 rounded-2xl flex items-center justify-center bg-primary shadow-xl"
                   )}>
                     <activeServiceData.icon className="w-8 h-8 text-white" />
                   </div>
@@ -187,8 +185,7 @@ const Services = () => {
                       className="flex items-start gap-3 bg-background/60 backdrop-blur-sm rounded-xl p-4 border border-border/50"
                     >
                       <div className={cn(
-                        "w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 bg-gradient-to-br",
-                        activeServiceData.gradient
+                        "w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 bg-primary"
                       )}>
                         <Check className="w-3.5 h-3.5 text-white" />
                       </div>

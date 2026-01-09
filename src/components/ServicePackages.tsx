@@ -58,7 +58,7 @@ const ServicePackages = () => {
   };
 
   return (
-    <section id="packages" className="py-24 bg-gradient-to-b from-muted/30 via-background to-muted/50 relative overflow-hidden">
+    <section id="packages" className="py-24 bg-background relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute top-1/4 left-0 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
@@ -91,7 +91,7 @@ const ServicePackages = () => {
                 {/* Popular Badge */}
                 {pkg.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <div className="flex items-center gap-1.5 bg-gradient-to-r from-primary to-pink-600 text-primary-foreground px-5 py-1.5 rounded-full text-sm font-semibold shadow-lg">
+                    <div className="flex items-center gap-1.5 bg-primary text-primary-foreground px-5 py-1.5 rounded-full text-sm font-semibold shadow-lg">
                       <Star className="w-4 h-4 fill-current" />
                       {t('packages.popular')}
                     </div>
@@ -100,8 +100,7 @@ const ServicePackages = () => {
 
                 {/* Gradient Header */}
                 <div className={cn(
-                  "h-2 rounded-t-3xl bg-gradient-to-r",
-                  pkg.gradient
+                  "h-2 rounded-t-3xl bg-primary"
                 )} />
 
                 <div className="p-8">
@@ -114,8 +113,7 @@ const ServicePackages = () => {
                     {pkg.items.map((item, i) => (
                       <div key={i} className="flex items-start gap-3 group/item">
                         <div className={cn(
-                          "w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-gradient-to-br",
-                          pkg.gradient
+                          "w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-primary"
                         )}>
                           <Check className="w-3 h-3 text-white" />
                         </div>
@@ -129,7 +127,7 @@ const ServicePackages = () => {
                     className={cn(
                       "w-full group/btn transition-all duration-300",
                       pkg.popular 
-                        ? "bg-gradient-to-r from-primary to-pink-600 hover:opacity-90 shadow-lg shadow-primary/25" 
+                        ? "bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25" 
                         : ""
                     )}
                     variant={pkg.popular ? "default" : "outline"}

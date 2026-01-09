@@ -1,118 +1,138 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Building2 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import GlassmorphismCard from "./GlassmorphismCard";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { t } = useLanguage();
   const location = useLocation();
-  const isHomePage = location.pathname === "/";
 
-  const scrollToSection = (sectionId: string) => {
-    if (!isHomePage) {
-      window.location.href = `/#${sectionId}`;
-      return;
-    }
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
-    { label: t('nav.services'), action: () => scrollToSection('services') },
-    { label: "Portfolio", href: "/portfolio" },
-    { label: "Team", href: "/team" },
-    { label: "Testimonials", href: "/testimonials" },
-    { label: "FAQ", href: "/faq" },
-    { label: t('nav.contact'), action: () => scrollToSection('contact') },
+    { label: t('nav.home'), href: "/" },
+    { label: t('nav.properties') || "Properties", href: "/properties" },
+    { label: t('nav.about'), href: "/about" },
+    { label: t('nav.contact'), href: "/contact" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">OP</span>
-          </div>
-          <div className="text-lg font-semibold text-foreground">
-            Own Property
-          </div>
-        </Link>
-        
-        <div className="hidden md:flex items-center space-x-6">
-          {navLinks.map((link) => (
-            link.href ? (
-              <Link 
-                key={link.label}
-                to={link.href}
-                className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                {link.label}
-              </Link>
-            ) : (
-              <button 
-                key={link.label}
-                onClick={link.action}
-                className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300"
-              >
-                {link.label}
-              </button>
-            )
-          ))}
-        </div>
-
-        <div className="hidden md:flex items-center space-x-2">
-          <LanguageSwitcher />
-          <ThemeToggle />
-        </div>
-
-        <Button
-          variant="ghost"
-          size="sm"
-          className="md:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? "py-4"
+          : "py-6"
+        }`}
+    >
+      <div className="container mx-auto px-6">
+        <GlassmorphismCard
+          blur={isScrolled ? "md" : "sm"}
+          opacity={isScrolled ? 0.95 : 0.1}
+          className={`rounded-2xl px-6 py-4 transition-all duration-500 ${isScrolled ? "shadow-lg" : ""}`}
         >
-          {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </Button>
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-3 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg hover:shadow-primary/25">
+                <Building2 className="text-white w-7 h-7" />
+              </div>
+              <div className="flex flex-col">
+                <span className={`text-xl font-bold leading-none transition-colors duration-300 ${isScrolled ? 'text-primary dark:text-white' : 'text-white'}`}>
+                  Ethio Core
+                </span>
+                <span className={`text-sm tracking-widest font-light transition-colors duration-300 ${isScrolled ? 'text-secondary' : 'text-gray-200'}`}>
+                  PROPERTY
+                </span>
+              </div>
+            </Link>
+
+            <div className="hidden md:flex items-center space-x-8">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.href;
+                return (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    className={`text-sm font-medium transition-all duration-300 hover:text-secondary hover:scale-105 relative group ${
+                      isScrolled ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
+                    } ${isActive ? 'text-secondary' : ''}`}
+                  >
+                    {link.label}
+                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full ${isActive ? 'w-full' : ''}`} />
+                  </Link>
+                );
+              })}
+            </div>
+
+            <div className="hidden md:flex items-center space-x-4">
+              <LanguageSwitcher />
+              <ThemeToggle />
+              <Button 
+                variant={isScrolled ? "default" : "secondary"} 
+                className="font-semibold shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
+              >
+                {t('nav.list.property') || 'List Your Property'}
+              </Button>
+            </div>
+
+            <Button
+              variant="ghost"
+              size="icon"
+              className={`md:hidden hover:scale-110 active:scale-95 transition-all duration-200 ${!isScrolled && "text-white hover:bg-white/10"}`}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle mobile menu"
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
+        </GlassmorphismCard>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-background border-b border-border">
-          <div className="container mx-auto px-6 py-6 space-y-4">
-            {navLinks.map((link) => (
-              link.href ? (
-                <Link 
-                  key={link.label}
-                  to={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block w-full text-left text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300"
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <button 
-                  key={link.label}
-                  onClick={link.action}
-                  className="block w-full text-left text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300"
-                >
-                  {link.label}
-                </button>
-              )
-            ))}
-            
-            {/* Mobile Theme Toggle & Language */}
-            <div className="pt-4 border-t border-border flex items-center gap-4">
-              <LanguageSwitcher />
-              <ThemeToggle />
+        <div className="md:hidden absolute top-full left-0 right-0 mt-2 mx-6">
+          <GlassmorphismCard
+            blur="md"
+            opacity={0.95}
+            className="rounded-2xl shadow-xl animate-slide-up"
+          >
+            <div className="p-6 space-y-4">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.href;
+                return (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block w-full text-lg font-medium transition-all duration-200 hover:text-primary hover:translate-x-2 ${
+                      isActive ? 'text-primary' : 'text-foreground'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+              <div className="pt-6 border-t border-border/20 flex flex-col gap-4">
+                <div className="flex items-center gap-4 justify-between">
+                  <LanguageSwitcher />
+                  <ThemeToggle />
+                </div>
+                <Button className="w-full hover:scale-105 active:scale-95 transition-all duration-200">
+                  {t('nav.list.property') || 'List Your Property'}
+                </Button>
+              </div>
             </div>
-          </div>
+          </GlassmorphismCard>
         </div>
       )}
     </nav>

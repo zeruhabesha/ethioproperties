@@ -29,7 +29,7 @@ const steps = [
 
 const Process = () => {
   return (
-    <section className="py-24 px-6 bg-background">
+    <section className="py-24 px-6 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <span className="text-minimal text-primary mb-4 block">How It Works</span>

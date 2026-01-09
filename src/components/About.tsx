@@ -22,7 +22,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-background relative overflow-hidden">
+    <section className="py-24 bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)]" />
       
@@ -48,7 +48,7 @@ const About = () => {
               </div>
 
               {/* Philosophy Card */}
-              <div className="mt-10 p-6 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 rounded-2xl relative overflow-hidden">
+              <div className="mt-10 p-6 bg-card border border-border rounded-2xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
                 <h3 className="text-xl font-bold text-foreground mb-3 relative z-10">{t('about.philosophy')}</h3>
                 <p className="text-muted-foreground leading-relaxed relative z-10">{t('about.philosophy.desc')}</p>
@@ -57,7 +57,7 @@ const About = () => {
 
             {/* Visual Element */}
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-primary/20 via-accent/30 to-muted/50 rounded-3xl overflow-hidden relative shadow-2xl">
+              <div className="aspect-square bg-card rounded-3xl overflow-hidden relative shadow-2xl border border-border">
                 {/* Decorative Elements */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-48 h-48 border-2 border-primary/30 rounded-full animate-pulse" />
@@ -66,7 +66,7 @@ const About = () => {
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-28 h-28 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl shadow-primary/30">
+                    <div className="w-28 h-28 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl shadow-primary/30">
                       <span className="text-4xl font-bold text-primary-foreground">OP</span>
                     </div>
                     <p className="text-sm text-muted-foreground font-medium">{t('hero.tagline')}</p>
@@ -101,8 +101,7 @@ const About = () => {
                   return (
                     <div key={index} className="flex items-start gap-4 group p-3 rounded-xl hover:bg-muted/50 transition-colors">
                       <div className={cn(
-                        "w-10 h-10 rounded-xl bg-gradient-to-br flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg",
-                        item.color
+                        "w-10 h-10 rounded-xl bg-primary flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg"
                       )}>
                         <Icon className="w-5 h-5 text-white" />
                       </div>
@@ -114,7 +113,7 @@ const About = () => {
             </div>
 
             {/* Who We Serve */}
-            <div className="bg-gradient-to-br from-primary/10 via-accent/10 to-muted/20 border border-primary/20 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-card border border-border rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <span className="inline-flex items-center gap-2 bg-background/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 mb-6">
                 <span className="text-sm font-medium text-foreground">{t('serve.label')}</span>
               </span>

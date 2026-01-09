@@ -1,97 +1,84 @@
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Shield, Play } from 'lucide-react';
-import heroImage from '@/assets/hero-property.jpg';
+import VideoBackground from './VideoBackground';
+import VideoControls from './VideoControls';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const { ref: heroRef, className: heroAnimationClass } = useScrollAnimation('fadeIn', { triggerOnce: true });
   const { t } = useLanguage();
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Full Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+    <section 
+      ref={heroRef}
+      className={`relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden ${heroAnimationClass}`}
+    >
+      {/* Video Background with Fallback */}
+      <VideoBackground
+        src="/hero-video.mp4"
+        fallbackImage="https://images.unsplash.com/photo-1600596542815-2a4d9f6fac90?q=80&w=2075&auto=format&fit=crop"
+        className="z-0"
+        poster="https://images.unsplash.com/photo-1600596542815-2a4d9f6fac90?q=80&w=2075&auto=format&fit=crop"
       />
-      
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-foreground/80 via-foreground/60 to-foreground/90" />
-      
-      {/* Animated Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-primary/10" />
 
-      {/* Content */}
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-6 pt-20">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-background/10 backdrop-blur-md border border-background/20 rounded-full px-5 py-2.5 mb-8 reveal">
-          <Shield className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium text-background">{t('hero.tagline')}</span>
-        </div>
-
-        {/* Main Title */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-background text-architectural mb-4 reveal drop-shadow-2xl">
-          {t('hero.title')}
-        </h1>
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-primary text-architectural mb-8 reveal-delayed drop-shadow-lg">
-          {t('hero.subtitle')}
-        </h2>
-        
-        {/* Description */}
-        <p className="text-xl md:text-2xl text-background/80 font-light max-w-3xl mx-auto mb-12 reveal-delayed leading-relaxed">
-          {t('hero.description')}
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 reveal-delayed">
-          <Button 
-            size="lg" 
-            className="group text-lg px-8 py-6 bg-primary hover:bg-primary/90 shadow-2xl hover:shadow-primary/25 transition-all duration-300"
-            onClick={() => scrollToSection('contact')}
-          >
-            {t('hero.cta')}
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="text-lg px-8 py-6 bg-background/10 backdrop-blur-sm border-background/30 text-background hover:bg-background/20 hover:text-background"
-            onClick={() => scrollToSection('services')}
-          >
-            <Play className="mr-2 h-5 w-5" />
-            {t('hero.learn')}
-          </Button>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-8 mt-20 pt-12 border-t border-background/20 reveal-delayed">
-          <div className="text-center group">
-            <div className="text-4xl md:text-5xl font-bold text-background mb-2 group-hover:text-primary transition-colors">200+</div>
-            <div className="text-sm text-background/60 uppercase tracking-wide">Properties Managed</div>
-          </div>
-          <div className="text-center group">
-            <div className="text-4xl md:text-5xl font-bold text-background mb-2 group-hover:text-primary transition-colors">10+</div>
-            <div className="text-sm text-background/60 uppercase tracking-wide">Years Experience</div>
-          </div>
-          <div className="text-center group">
-            <div className="text-4xl md:text-5xl font-bold text-background mb-2 group-hover:text-primary transition-colors">98%</div>
-            <div className="text-sm text-background/60 uppercase tracking-wide">Client Satisfaction</div>
-          </div>
-        </div>
+      {/* Video Controls for Accessibility */}
+      <div className="absolute top-6 right-6 z-20">
+        <VideoControls videoRef={videoRef} />
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 reveal-delayed">
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-xs text-background/50 uppercase tracking-widest">Scroll</span>
-          <div className="w-6 h-10 border-2 border-background/40 rounded-full flex justify-center">
-            <div className="w-1.5 h-3 bg-background/60 rounded-full mt-2 animate-bounce" />
+      <div className="container relative z-10 px-6 pt-20">
+        <div className="max-w-3xl space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white w-fit animate-slide-up">
+            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-sm font-medium">{t('hero.badge') || 'No. 1 Real Estate Platform in Ethiopia'}</span>
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight animate-slide-up [animation-delay:200ms]">
+            {t('hero.title')} <br />
+            <span className="text-secondary bg-clip-text text-transparent bg-gradient-to-r from-secondary to-accent">
+              {t('hero.subtitle')}
+            </span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-200 max-w-xl leading-relaxed animate-slide-up [animation-delay:400ms]">
+            {t('hero.description')}
+          </p>
+
+          {/* Call to Action Buttons */}
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 animate-slide-up [animation-delay:600ms]">
+            <Button 
+              size="lg" 
+              className="h-14 px-8 rounded-xl text-lg font-semibold shadow-lg hover:shadow-primary/25 hover:scale-105 active:scale-95 transition-all duration-200 focus:ring-2 focus:ring-primary/50 focus:ring-offset-2"
+            >
+              {t('hero.cta')}
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="h-14 px-8 rounded-xl text-lg font-semibold border-white text-white hover:bg-white hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200"
+            >
+              {t('hero.learn')}
+            </Button>
+          </div>
+
+          {/* Enhanced Statistics with Staggered Animation */}
+          <div className="pt-8 flex items-center gap-8 text-white/80">
+            <div className="flex flex-col animate-slide-up [animation-delay:800ms]">
+              <span className="text-3xl font-bold text-white">{t('hero.stats.listings') || '1200+'}</span>
+              <span className="text-sm">{t('hero.stats.listings.label') || 'Premium Listings'}</span>
+            </div>
+            <div className="h-10 w-px bg-white/20" />
+            <div className="flex flex-col animate-slide-up [animation-delay:900ms]">
+              <span className="text-3xl font-bold text-white">{t('hero.stats.clients') || '500+'}</span>
+              <span className="text-sm">{t('hero.stats.clients.label') || 'Happy Clients'}</span>
+            </div>
+            <div className="h-10 w-px bg-white/20" />
+            <div className="flex flex-col animate-slide-up [animation-delay:1000ms]">
+              <span className="text-3xl font-bold text-white">{t('hero.stats.support') || '24/7'}</span>
+              <span className="text-sm">{t('hero.stats.support.label') || 'Support'}</span>
+            </div>
           </div>
         </div>
       </div>

@@ -7,7 +7,8 @@ import Process from "@/components/Process";
 import FeaturedProperties from "@/components/FeaturedProperties";
 import ServicePackages from "@/components/ServicePackages";
 import Partners from "@/components/Partners";
-import Contact from "@/components/Contact";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -16,13 +17,14 @@ const Index = () => {
       <Navigation />
       <Hero />
       <Partners />
+      <FeaturedProperties />
+      <WhyChooseUs />
       <Services />
       <Statistics />
+      <Testimonials />
       <About />
       <Process />
-      <FeaturedProperties />
       <ServicePackages />
-      <Contact />
       <Footer />
     </div>
   );

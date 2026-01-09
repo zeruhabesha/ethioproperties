@@ -18,14 +18,23 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.about': 'About',
     'nav.packages': 'Packages',
     'nav.contact': 'Contact',
+    'nav.properties': 'Properties',
+    'nav.list.property': 'List Your Property',
     
     // Hero
-    'hero.title': 'Own Property',
-    'hero.subtitle': 'Management',
+    'hero.title': 'Discover Premium',
+    'hero.subtitle': 'Properties in Ethiopia',
     'hero.tagline': 'Caring for What You Own',
-    'hero.description': 'Reliable and professional property management services designed for Ethiopian property owners at home and abroad.',
-    'hero.cta': 'Get Started',
+    'hero.description': 'Experience luxury living with our carefully curated collection of premium properties across Addis Ababa and beyond. Your dream home awaits.',
+    'hero.cta': 'View Properties',
     'hero.learn': 'Learn More',
+    'hero.badge': 'No. 1 Real Estate Platform in Ethiopia',
+    'hero.stats.listings': '1200+',
+    'hero.stats.listings.label': 'Premium Listings',
+    'hero.stats.clients': '500+',
+    'hero.stats.clients.label': 'Happy Clients',
+    'hero.stats.support': '24/7',
+    'hero.stats.support.label': 'Support',
     
     // Services
     'services.label': 'OUR SERVICES',
@@ -78,15 +87,15 @@ const translations: Record<Language, Record<string, string>> = {
     
     // About
     'about.label': 'ABOUT US',
-    'about.title': 'About Own Property',
-    'about.desc1': 'Own Property Management is a trusted Ethiopian property management service company dedicated to protecting and managing properties with integrity, transparency, and care.',
+    'about.title': 'About Ethio Core Property',
+    'about.desc1': 'Ethio Core Property is a trusted Ethiopian property management service company dedicated to protecting and managing properties with integrity, transparency, and care.',
     'about.desc2': 'We serve local and diaspora property owners by acting as a reliable local representative—so your property is always in good hands.',
     'about.philosophy': 'Our Philosophy',
     'about.philosophy.desc': 'We believe property ownership is a source of pride and security. We manage your property with the same care, responsibility, and respect as if it were our own.',
     
     // Why Choose Us
     'why.label': 'WHY CHOOSE US',
-    'why.title': 'The Own Property Advantage',
+    'why.title': 'The Ethio Core Property Advantage',
     'why.item1': 'Strong understanding of the Ethiopian real estate environment',
     'why.item2': 'Trusted local presence for diaspora owners',
     'why.item3': 'Transparent communication & reporting',
@@ -146,10 +155,53 @@ const translations: Record<Language, Record<string, string>> = {
     // Footer
     'footer.rights': 'All rights reserved.',
     'footer.tagline': 'Caring for What You Own',
+    'footer.description': 'Your trusted partner in finding the perfect property in Ethiopia. We bridge the gap between dream homes and reality with premium services.',
+    'footer.quick.links': 'Quick Links',
+    'footer.property.types': 'Property Types',
+    'footer.types.apartments': 'Apartments',
+    'footer.types.villas': 'Villas',
+    'footer.types.offices': 'Offices',
+    'footer.types.commercial': 'Commercial',
+    'footer.types.land': 'Land',
+    'footer.phone': '+251 91 123 4567',
+    'footer.email': 'info@ethiocoreproperty.com',
+    'footer.privacy': 'Privacy Policy',
+    'footer.terms': 'Terms of Service',
     
     // Language
     'lang.en': 'English',
     'lang.am': 'አማርኛ',
+    
+    // Properties
+    'properties.description': 'Discover our exclusive collection of luxury properties across Ethiopia\'s most prestigious locations. Each property represents the pinnacle of modern living and investment opportunity.',
+    'properties.featured': 'Featured Properties',
+    'properties.featured.desc': 'Each property in our portfolio has been carefully selected for its exceptional quality, prime location, and investment potential.',
+    'properties.exclusive': 'Exclusive Collection',
+    'properties.view.all': 'View All Properties',
+    'properties.schedule': 'Schedule a Viewing',
+    'properties.cta.title': 'Can\'t Find What You\'re Looking For?',
+    'properties.cta.desc': 'Our team of experts can help you find the perfect property that matches your specific needs and budget.',
+    
+    // Property Card
+    'property.favorite': 'Add to favorites',
+    'property.view': 'View Details',
+    'property.beds': 'Beds',
+    'property.baths': 'Baths',
+    
+    // Partners
+    'partners.trusted': 'Trusted Ethiopian Partners',
+    'partners.title': 'Collaborating with Ethiopia\'s Leading Companies',
+    'partners.desc': 'Proud to work alongside Ethiopia\'s most respected institutions and companies, bringing together expertise and trust to serve our clients better.',
+    
+    // Statistics
+    'stats.properties': 'Properties in Ethiopia',
+    'stats.properties.desc': 'Across major cities',
+    'stats.years': 'Years in Ethiopian Market',
+    'stats.years.desc': 'Local expertise',
+    'stats.satisfaction': 'Ethiopian Client Satisfaction',
+    'stats.satisfaction.desc': 'Trusted locally',
+    'stats.impact': 'Our Ethiopian Impact',
+    'stats.title': 'Serving Ethiopia with Excellence',
   },
   am: {
     // Navigation
@@ -158,14 +210,23 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.about': 'ስለ እኛ',
     'nav.packages': 'ጥቅሎች',
     'nav.contact': 'አግኙን',
+    'nav.properties': 'ንብረቶች',
+    'nav.list.property': 'ንብረትዎን ይዘርዝሩ',
     
     // Hero
-    'hero.title': 'ኦውን ፕሮፐርቲ',
-    'hero.subtitle': 'ማኔጅመንት',
+    'hero.title': 'ፕሪሚየም ንብረቶችን',
+    'hero.subtitle': 'በኢትዮጵያ ያግኙ',
     'hero.tagline': 'ያለዎትን እንንከባከባለን',
-    'hero.description': 'በአገር ውስጥ እና በውጭ አገር ለሚኖሩ የኢትዮጵያ ንብረት ባለቤቶች የተዘጋጀ አስተማማኝ እና ባለሙያ የንብረት አስተዳደር አገልግሎት።',
-    'hero.cta': 'ጀምር',
+    'hero.description': 'በአዲስ አበባ እና ከዚያ በላይ በጥንቃቄ የተመረጡ የቅንጦት ንብረቶች ስብስብ የቅንጦት ኑሮን ይለማመዱ። የህልምዎ ቤት እየጠበቀዎት ነው።',
+    'hero.cta': 'ንብረቶችን ይመልከቱ',
     'hero.learn': 'ተጨማሪ እወቅ',
+    'hero.badge': 'በኢትዮጵያ ቁጥር 1 የሪል እስቴት መድረክ',
+    'hero.stats.listings': '1200+',
+    'hero.stats.listings.label': 'ፕሪሚየም ዝርዝሮች',
+    'hero.stats.clients': '500+',
+    'hero.stats.clients.label': 'ደስተኛ ደንበኞች',
+    'hero.stats.support': '24/7',
+    'hero.stats.support.label': 'ድጋፍ',
     
     // Services
     'services.label': 'አገልግሎቶቻችን',
@@ -218,15 +279,15 @@ const translations: Record<Language, Record<string, string>> = {
     
     // About
     'about.label': 'ስለ እኛ',
-    'about.title': 'ስለ ኦውን ፕሮፐርቲ',
-    'about.desc1': 'ኦውን ፕሮፐርቲ ማኔጅመንት ንብረቶችን በታማኝነት፣ ግልጽነት እና እንክብካቤ ለመጠበቅ እና ለማስተዳደር የተሰጠ ታማኝ የኢትዮጵያ የንብረት አስተዳደር አገልግሎት ድርጅት ነው።',
+    'about.title': 'ስለ ኢትዮ ኮር ፕሮፐርቲ',
+    'about.desc1': 'ኢትዮ ኮር ፕሮፐርቲ ማኔጅመንት ንብረቶችን በታማኝነት፣ ግልጽነት እና እንክብካቤ ለመጠበቅ እና ለማስተዳደር የተሰጠ ታማኝ የኢትዮጵያ የንብረት አስተዳደር አገልግሎት ድርጅት ነው።',
     'about.desc2': 'በአገር ውስጥ እና በውጭ አገር ለሚኖሩ የንብረት ባለቤቶች ታማኝ የአካባቢ ተወካይ በመሆን እናገለግላለን—ስለዚህ ንብረትዎ ሁልጊዜ በጥሩ እጅ ውስጥ ነው።',
     'about.philosophy': 'የእኛ ፍልስፍና',
     'about.philosophy.desc': 'የንብረት ባለቤትነት የኩራት እና ደህንነት ምንጭ እንደሆነ እናምናለን። ንብረትዎን የራሳችን ቢሆን በሚመስል እንክብካቤ፣ ሃላፊነት እና አክብሮት እናስተዳድራለን።',
     
     // Why Choose Us
     'why.label': 'ለምን እኛን ይምረጡ',
-    'why.title': 'የኦውን ፕሮፐርቲ ጥቅም',
+    'why.title': 'የኢትዮ ኮር ፕሮፐርቲ ጥቅም',
     'why.item1': 'የኢትዮጵያ የሪል እስቴት ገበያ ጥልቅ ግንዛቤ',
     'why.item2': 'ለውጭ አገር ነዋሪ ባለቤቶች ታማኝ የአካባቢ ተገኝነት',
     'why.item3': 'ግልጽ ግንኙነት እና ሪፖርት',
@@ -286,10 +347,53 @@ const translations: Record<Language, Record<string, string>> = {
     // Footer
     'footer.rights': 'መብቶች በሙሉ የተጠበቁ ናቸው።',
     'footer.tagline': 'ያለዎትን እንንከባከባለን',
+    'footer.description': 'በኢትዮጵያ ፍጹም ንብረት ለማግኘት የታመነ አጋርዎ። በህልም ቤቶች እና በእውነታ መካከል ያለውን ክፍተት በፕሪሚየም አገልግሎቶች እንሞላለን።',
+    'footer.quick.links': 'ፈጣን አገናኞች',
+    'footer.property.types': 'የንብረት ዓይነቶች',
+    'footer.types.apartments': 'አፓርታማዎች',
+    'footer.types.villas': 'ቪላዎች',
+    'footer.types.offices': 'ቢሮዎች',
+    'footer.types.commercial': 'ንግድ',
+    'footer.types.land': 'መሬት',
+    'footer.phone': '+251 91 123 4567',
+    'footer.email': 'info@ethiocoreproperty.com',
+    'footer.privacy': 'የግላዊነት ፖሊሲ',
+    'footer.terms': 'የአገልግሎት ውሎች',
     
     // Language
     'lang.en': 'English',
     'lang.am': 'አማርኛ',
+    
+    // Properties
+    'properties.description': 'በኢትዮጵያ በጣም ተወዳጅ በሆኑ ቦታዎች የሚገኙ የቅንጦት ንብረቶችን ልዩ ስብስብ ያግኙ። እያንዳንዱ ንብረት የዘመናዊ ኑሮ እና የኢንቨስትመንት እድል ከፍተኛ ደረጃ ይወክላል።',
+    'properties.featured': 'ተመራጭ ንብረቶች',
+    'properties.featured.desc': 'በእኛ ፖርትፎሊዮ ውስጥ ያለ እያንዳንዱ ንብረት ለልዩ ጥራቱ፣ ዋና ቦታው እና የኢንቨስትመንት አቅሙ በጥንቃቄ ተመርጧል።',
+    'properties.exclusive': 'ልዩ ስብስብ',
+    'properties.view.all': 'ሁሉንም ንብረቶች ይመልከቱ',
+    'properties.schedule': 'መመልከቻ ይያዙ',
+    'properties.cta.title': 'የሚፈልጉትን ማግኘት አልቻሉም?',
+    'properties.cta.desc': 'የእኛ የባለሙያዎች ቡድን ከእርስዎ ልዩ ፍላጎት እና በጀት ጋር የሚስማማ ፍጹም ንብረት እንዲያገኙ ሊረዳዎት ይችላል።',
+    
+    // Property Card
+    'property.favorite': 'ወደ ተወዳጆች ጨምር',
+    'property.view': 'ዝርዝሮችን ይመልከቱ',
+    'property.beds': 'መኝታ ቤቶች',
+    'property.baths': 'መታጠቢያ ቤቶች',
+    
+    // Partners
+    'partners.trusted': 'የታመኑ የኢትዮጵያ አጋሮች',
+    'partners.title': 'ከኢትዮጵያ መሪ ኩባንያዎች ጋር በመተባበር',
+    'partners.desc': 'ከኢትዮጵያ በጣም የተከበሩ ተቋማት እና ኩባንያዎች ጋር በመስራት እንኮራለን፣ ደንበኞቻችንን በተሻለ ሁኔታ ለማገልገል ባለሙያነት እና እምነትን አንድ ላይ እናመጣለን።',
+    
+    // Statistics
+    'stats.properties': 'በኢትዮጵያ ንብረቶች',
+    'stats.properties.desc': 'በዋና ዋና ከተሞች',
+    'stats.years': 'በኢትዮጵያ ገበያ ዓመታት',
+    'stats.years.desc': 'የአካባቢ ባለሙያነት',
+    'stats.satisfaction': 'የኢትዮጵያ ደንበኞች እርካታ',
+    'stats.satisfaction.desc': 'በአካባቢው የታመነ',
+    'stats.impact': 'የእኛ የኢትዮጵያ ተፅእኖ',
+    'stats.title': 'ኢትዮጵያን በላቀ ሁኔታ እናገለግላለን',
   },
 };
 

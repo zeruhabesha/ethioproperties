@@ -54,7 +54,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-background via-muted/30 to-background relative overflow-hidden">
+    <section id="contact" className="py-24 bg-background relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
       
@@ -82,7 +82,7 @@ const Contact = () => {
                   key={index}
                   className="bg-card border border-border rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300 group hover:-translate-y-1"
                 >
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${info.gradient} flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
+                  <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
                     <Icon className="w-7 h-7 text-white" />
                   </div>
                   <h4 className="font-semibold text-foreground mb-1">{info.value}</h4>
@@ -154,7 +154,7 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full h-14 text-lg bg-gradient-to-r from-primary to-pink-600 hover:opacity-90 shadow-lg shadow-primary/25" 
+                  className="w-full h-14 text-lg bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25" 
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -174,12 +174,12 @@ const Contact = () => {
 
             {/* Info Card */}
             <div className="lg:col-span-2 space-y-6">
-              <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 border border-primary/20 rounded-3xl p-8 h-full">
+              <div className="bg-card border border-border rounded-3xl p-8 h-full">
                 <h3 className="text-xl font-bold text-foreground mb-6">{t('contact.or')}</h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-center gap-4 p-4 bg-background/60 backdrop-blur-sm rounded-2xl border border-border/50">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shadow-lg">
+                    <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center shadow-lg">
                       <Clock className="w-6 h-6 text-white" />
                     </div>
                     <div>
