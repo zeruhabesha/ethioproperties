@@ -45,23 +45,23 @@ const FeaturedProperties = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 px-6 bg-gray-50 dark:bg-background/50">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-gray-50 dark:bg-background/50">
       <div className="container mx-auto max-w-7xl">
         <ScrollAnimation animation="fadeIn">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 sm:mb-10 md:mb-12">
             <div>
-              <span className="text-secondary font-semibold mb-2 block tracking-wider uppercase text-sm">
+              <span className="text-secondary font-semibold mb-2 block tracking-wider uppercase text-xs sm:text-sm">
                 {t('properties.exclusive') || 'Exclusive Collection'}
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
                 {t('properties.featured') || 'Featured Properties'}
               </h2>
-              <p className="text-muted-foreground max-w-xl">
+              <p className="text-sm sm:text-base text-muted-foreground max-w-xl">
                 {t('properties.featured.desc') || 'Discover our handpicked selection of premium properties, each offering exceptional quality and prime locations across Ethiopia\'s most desirable areas.'}
               </p>
             </div>
             <Link to="/properties">
-              <Button variant="outline" className="mt-6 md:mt-0 group border-primary/20 hover:border-primary hover:scale-105 transition-all duration-200">
+              <Button variant="outline" className="mt-4 sm:mt-6 md:mt-0 w-full sm:w-auto group border-primary/20 hover:border-primary hover:scale-105 transition-all duration-200">
                 {t('properties.view.all') || 'View All Properties'}
                 <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </Button>
@@ -69,7 +69,7 @@ const FeaturedProperties = () => {
           </div>
         </ScrollAnimation>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {properties.map((property, index) => (
             <div key={property.id} className={`animate-slide-up [animation-delay:${index * 150}ms]`}>
               <PropertyCard {...property} />

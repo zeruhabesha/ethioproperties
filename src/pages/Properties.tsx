@@ -130,7 +130,7 @@ const Properties = () => {
                     <div
                         className="absolute inset-0"
                         style={{
-                            background: 'linear-gradient(to right, rgb(26 54 93 / 0.9), rgb(26 54 93 / 0.9), rgb(26 54 93 / 0.9))'
+                            background: 'linear-gradient(to right, rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7))'
                         }}
                     />
                 </div>

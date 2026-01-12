@@ -22,8 +22,8 @@ const PropertyCard = ({ image, title, location, price, beds, baths, sqft, type }
 
     return (
         <ScrollAnimation animation="slideUp" className="h-full">
-            <InteractiveCard 
-                hoverEffect="lift" 
+            <InteractiveCard
+                hoverEffect="lift"
                 className="group overflow-hidden border-none shadow-lg rounded-2xl bg-white dark:bg-card h-full"
                 as="div"
             >
@@ -41,9 +41,9 @@ const PropertyCard = ({ image, title, location, price, beds, baths, sqft, type }
                         </Badge>
                     </div>
                     <div className="absolute top-4 right-4">
-                        <Button 
-                            size="icon" 
-                            variant="ghost" 
+                        <Button
+                            size="icon"
+                            variant="ghost"
                             className="rounded-full bg-white/20 backdrop-blur-sm hover:bg-white text-white hover:text-red-500 transition-all duration-200 hover:scale-110 active:scale-95"
                             aria-label={t('property.favorite') || 'Add to favorites'}
                         >
@@ -51,7 +51,7 @@ const PropertyCard = ({ image, title, location, price, beds, baths, sqft, type }
                         </Button>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <Button 
+                        <Button
                             className="w-full bg-secondary hover:bg-secondary/90 text-white hover:scale-105 active:scale-95 transition-all duration-200"
                             aria-label={`${t('property.view') || 'View details for'} ${title}`}
                         >
@@ -73,15 +73,15 @@ const PropertyCard = ({ image, title, location, price, beds, baths, sqft, type }
                     </div>
 
                     <div className="grid grid-cols-3 gap-4 py-4 border-t border-border">
-                        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-gray-50 dark:bg-muted/50 hover:bg-primary/10 transition-colors duration-200">
+                        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-gray-50 dark:bg-gradient-to-br dark:from-amber-900/30 dark:to-yellow-900/20 hover:bg-primary/10 dark:hover:from-amber-800/40 dark:hover:to-yellow-800/30 transition-colors duration-200">
                             <Bed className="w-5 h-5 text-gray-400 mb-1 group-hover:text-primary transition-colors duration-200" />
                             <span className="text-sm font-semibold">{beds} <span className="text-xs font-normal text-muted-foreground">{t('property.beds') || 'Beds'}</span></span>
                         </div>
-                        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-gray-50 dark:bg-muted/50 hover:bg-primary/10 transition-colors duration-200">
+                        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-gray-50 dark:bg-gradient-to-br dark:from-amber-900/30 dark:to-yellow-900/20 hover:bg-primary/10 dark:hover:from-amber-800/40 dark:hover:to-yellow-800/30 transition-colors duration-200">
                             <Bath className="w-5 h-5 text-gray-400 mb-1 group-hover:text-primary transition-colors duration-200" />
                             <span className="text-sm font-semibold">{baths} <span className="text-xs font-normal text-muted-foreground">{t('property.baths') || 'Baths'}</span></span>
                         </div>
-                        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-gray-50 dark:bg-muted/50 hover:bg-primary/10 transition-colors duration-200">
+                        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-gray-50 dark:bg-gradient-to-br dark:from-amber-900/30 dark:to-yellow-900/20 hover:bg-primary/10 dark:hover:from-amber-800/40 dark:hover:to-yellow-800/30 transition-colors duration-200">
                             <Move className="w-5 h-5 text-gray-400 mb-1 group-hover:text-primary transition-colors duration-200" />
                             <span className="text-sm font-semibold">{sqft} <span className="text-xs font-normal text-muted-foreground">m²</span></span>
                         </div>

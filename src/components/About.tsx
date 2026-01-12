@@ -25,7 +25,7 @@ const About = () => {
     <section className="py-24 bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)]" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Main About */}
@@ -37,7 +37,7 @@ const About = () => {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-architectural mb-8">
                 {t('about.title')}
               </h2>
-              
+
               <div className="space-y-6">
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {t('about.desc1')}
@@ -58,6 +58,13 @@ const About = () => {
             {/* Visual Element */}
             <div className="relative">
               <div className="aspect-square bg-card rounded-3xl overflow-hidden relative shadow-2xl border border-border">
+                {/* Background Image */}
+                <img
+                  // src="/image.jpg"
+                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                  alt="Ethio Core Property"
+                  className="absolute inset-0 w-full h-full object-cover opacity-20 dark:opacity-10"
+                />
                 {/* Decorative Elements */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-48 h-48 border-2 border-primary/30 rounded-full animate-pulse" />
@@ -72,7 +79,7 @@ const About = () => {
                     <p className="text-sm text-muted-foreground font-medium">{t('hero.tagline')}</p>
                   </div>
                 </div>
-                
+
                 {/* Floating Stats */}
                 <div className="absolute top-8 left-8 bg-background/90 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-border">
                   <div className="text-2xl font-bold text-foreground">200+</div>
@@ -94,7 +101,7 @@ const About = () => {
                 <span className="text-sm font-medium text-primary">{t('why.label')}</span>
               </span>
               <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">{t('why.title')}</h3>
-              
+
               <div className="space-y-4">
                 {whyChooseUs.map((item, index) => {
                   const Icon = item.icon;
@@ -118,7 +125,7 @@ const About = () => {
                 <span className="text-sm font-medium text-foreground">{t('serve.label')}</span>
               </span>
               <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">{t('serve.title')}</h3>
-              
+
               <div className="space-y-4">
                 {whoWeServe.map((item, index) => (
                   <div key={index} className="flex items-center gap-4 group p-3 rounded-xl hover:bg-background/50 transition-colors">

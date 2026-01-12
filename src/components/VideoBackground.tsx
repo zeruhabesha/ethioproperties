@@ -93,7 +93,7 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({
         role="img"
         aria-label="Property showcase background"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+        <div className="absolute inset-0" style={{ background: 'rgba(26, 54, 93, 0.7)' }} />
       </div>
     );
   }
@@ -106,7 +106,7 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({
           className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-pulse"
           style={{ backgroundImage: `url("${poster || fallbackImage}")` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+          <div className="absolute inset-0" style={{ background: 'rgba(26, 54, 93, 0.7)' }} />
         </div>
       )}
 
@@ -131,7 +131,7 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({
       </video>
 
       {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+      <div className="absolute inset-0" style={{ background: 'rgba(26, 54, 93, 0.7)' }} />
     </div>
   );
 };

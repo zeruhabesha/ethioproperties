@@ -41,7 +41,7 @@ const WhyChooseUs = () => {
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="p-6 rounded-2xl bg-gray-50 dark:bg-muted/50 hover:bg-white hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-gray-100"
+                            className="p-6 rounded-2xl bg-gray-50 dark:bg-gradient-to-br dark:from-amber-900/20 dark:to-yellow-900/10 hover:bg-white dark:hover:from-amber-800/30 dark:hover:to-yellow-800/20 hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-gray-100 dark:hover:border-amber-700/50"
                         >
                             <div className="w-14 h-14 rounded-xl bg-primary/5 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                                 <feature.icon className="w-7 h-7" />

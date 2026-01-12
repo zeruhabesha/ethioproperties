@@ -28,7 +28,7 @@ const About = () => {
           <div
             className="absolute inset-0"
             style={{
-              background: 'linear-gradient(to right, rgb(26 54 93 / 0.9), rgb(26 54 93 / 0.9), rgb(26 54 93 / 0.9))'
+              background: 'linear-gradient(to right, rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7))'
             }}
           />
         </div>
@@ -123,22 +123,22 @@ const About = () => {
           </ScrollAnimation>
 
           <ScrollAnimation animation="slideUp">
-            <div className="flex justify-center">
-              <InteractiveCard hoverEffect="lift" className="group text-center max-w-sm">
+            <div className="flex justify-center px-4">
+              <InteractiveCard hoverEffect="lift" className="group text-center w-full max-w-sm md:max-w-md">
                 <GlassmorphismCard
                   blur="md"
                   opacity={0.1}
-                  className="p-8 rounded-2xl border border-white/20"
+                  className="p-4 sm:p-6 md:p-8 rounded-2xl border border-white/20"
                 >
-                  <div className="relative mb-6 rounded-2xl overflow-hidden aspect-square">
+                  <div className="relative mb-4 sm:mb-5 md:mb-6 rounded-2xl overflow-hidden aspect-square">
                     <img
-                      src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80"
+                      src="/image.jpg"
                       alt="Melat Dereje"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Melat Dereje</h3>
-                  <p className="text-secondary text-base">Managing Director & Founder</p>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">Melat Dereje</h3>
+                  <p className="text-secondary text-sm sm:text-base md:text-lg">Managing Director & Founder</p>
                 </GlassmorphismCard>
               </InteractiveCard>
             </div>
