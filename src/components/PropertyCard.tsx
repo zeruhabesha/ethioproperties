@@ -5,6 +5,8 @@ import InteractiveCard from "./InteractiveCard";
 import ScrollAnimation from "./ScrollAnimation";
 import LazyImage from "./LazyImage";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState } from "react";
+import PropertyDetailsModal from "./PropertyDetailsModal";
 
 interface PropertyProps {
     image: string;
@@ -19,6 +21,7 @@ interface PropertyProps {
 
 const PropertyCard = ({ image, title, location, price, beds, baths, sqft, type }: PropertyProps) => {
     const { t } = useLanguage();
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <ScrollAnimation animation="slideUp" className="h-full">
@@ -54,6 +57,7 @@ const PropertyCard = ({ image, title, location, price, beds, baths, sqft, type }
                         <Button
                             className="w-full bg-secondary hover:bg-secondary/90 text-white hover:scale-105 active:scale-95 transition-all duration-200"
                             aria-label={`${t('property.view') || 'View details for'} ${title}`}
+                            onClick={() => setIsModalOpen(true)}
                         >
                             {t('property.view') || 'View Details'}
                         </Button>
@@ -88,6 +92,23 @@ const PropertyCard = ({ image, title, location, price, beds, baths, sqft, type }
                     </div>
                 </div>
             </InteractiveCard>
+
+            {/* Property Details Modal */}
+            <PropertyDetailsModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                property={{
+                    id: 0,
+                    image,
+                    title,
+                    location,
+                    price,
+                    beds,
+                    baths,
+                    sqft,
+                    type
+                }}
+            />
         </ScrollAnimation>
     );
 };
