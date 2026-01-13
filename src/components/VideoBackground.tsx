@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import DecorativePattern from './DecorativePattern';
 
 interface VideoBackgroundProps {
   src: string;
@@ -94,6 +95,7 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({
         aria-label="Property showcase background"
       >
         <div className="absolute inset-0" style={{ background: 'rgba(26, 54, 93, 0.7)' }} />
+        <DecorativePattern variant="dots" opacity={0.15} />
       </div>
     );
   }

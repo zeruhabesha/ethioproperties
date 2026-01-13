@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import DecorativePattern from './DecorativePattern';
 import { Home, Building2, Wrench, DollarSign, Users, Compass, ChevronRight, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -99,6 +100,7 @@ const Services = () => {
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+      <DecorativePattern variant="geometric" opacity={0.08} />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-7xl mx-auto">

@@ -1,19 +1,21 @@
 import { Building2, Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import DecorativePattern from './DecorativePattern';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-[#0f172a] text-white pt-20 pb-10">
+    <footer className="bg-[#0f172a] text-white pt-20 pb-10 relative overflow-hidden">
+      <DecorativePattern variant="diagonal" opacity={0.05} />
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                 <Building2 className="text-white w-6 h-6" />
               </div>
               <div>

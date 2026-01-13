@@ -77,15 +77,15 @@ const PropertyCard = ({ image, title, location, price, beds, baths, sqft, type }
                     </div>
 
                     <div className="grid grid-cols-3 gap-4 py-4 border-t border-border">
-                        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-gray-50 dark:bg-gradient-to-br dark:from-amber-900/30 dark:to-yellow-900/20 hover:bg-primary/10 dark:hover:from-amber-800/40 dark:hover:to-yellow-800/30 transition-colors duration-200">
+                        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-gray-50 dark:bg-amber-900/25 hover:bg-primary/10 dark:hover:bg-amber-800/35 transition-colors duration-200">
                             <Bed className="w-5 h-5 text-gray-400 mb-1 group-hover:text-primary transition-colors duration-200" />
                             <span className="text-sm font-semibold">{beds} <span className="text-xs font-normal text-muted-foreground">{t('property.beds') || 'Beds'}</span></span>
                         </div>
-                        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-gray-50 dark:bg-gradient-to-br dark:from-amber-900/30 dark:to-yellow-900/20 hover:bg-primary/10 dark:hover:from-amber-800/40 dark:hover:to-yellow-800/30 transition-colors duration-200">
+                        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-gray-50 dark:bg-amber-900/25 hover:bg-primary/10 dark:hover:bg-amber-800/35 transition-colors duration-200">
                             <Bath className="w-5 h-5 text-gray-400 mb-1 group-hover:text-primary transition-colors duration-200" />
                             <span className="text-sm font-semibold">{baths} <span className="text-xs font-normal text-muted-foreground">{t('property.baths') || 'Baths'}</span></span>
                         </div>
-                        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-gray-50 dark:bg-gradient-to-br dark:from-amber-900/30 dark:to-yellow-900/20 hover:bg-primary/10 dark:hover:from-amber-800/40 dark:hover:to-yellow-800/30 transition-colors duration-200">
+                        <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-gray-50 dark:bg-amber-900/25 hover:bg-primary/10 dark:hover:bg-amber-800/35 transition-colors duration-200">
                             <Move className="w-5 h-5 text-gray-400 mb-1 group-hover:text-primary transition-colors duration-200" />
                             <span className="text-sm font-semibold">{sqft} <span className="text-xs font-normal text-muted-foreground">m²</span></span>
                         </div>

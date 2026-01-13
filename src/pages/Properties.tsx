@@ -4,6 +4,7 @@ import PropertyCard from "@/components/PropertyCard";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import DecorativePattern from "@/components/DecorativePattern";
 
 // Enhanced property data with more realistic Ethiopian properties
 const allProperties = [
@@ -133,6 +134,7 @@ const Properties = () => {
                             background: 'linear-gradient(to right, rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7))'
                         }}
                     />
+                    <DecorativePattern variant="dots" opacity={0.12} />
                 </div>
 
                 <div className="container mx-auto px-6 text-center relative z-10">

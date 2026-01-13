@@ -31,8 +31,8 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? "py-4"
-          : "py-6"
+        ? "py-4"
+        : "py-6"
         }`}
     >
       <div className="container mx-auto px-6">
@@ -43,7 +43,7 @@ const Navigation = () => {
         >
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg hover:shadow-primary/25">
+              <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg hover:shadow-primary/25">
                 <Building2 className="text-white w-7 h-7" />
               </div>
               <div className="flex flex-col">
@@ -63,9 +63,8 @@ const Navigation = () => {
                   <Link
                     key={link.label}
                     to={link.href}
-                    className={`text-sm font-medium transition-all duration-300 hover:text-secondary hover:scale-105 relative group ${
-                      isScrolled ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
-                    } ${isActive ? 'text-secondary' : ''}`}
+                    className={`text-sm font-medium transition-all duration-300 hover:text-secondary hover:scale-105 relative group ${isScrolled ? 'text-gray-700 dark:text-gray-200' : 'text-white/90'
+                      } ${isActive ? 'text-secondary' : ''}`}
                   >
                     {link.label}
                     <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full ${isActive ? 'w-full' : ''}`} />
@@ -77,8 +76,8 @@ const Navigation = () => {
             <div className="hidden md:flex items-center space-x-4">
               <LanguageSwitcher />
               <ThemeToggle />
-              <Button 
-                variant={isScrolled ? "default" : "secondary"} 
+              <Button
+                variant={isScrolled ? "default" : "secondary"}
                 className="font-semibold shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 {t('nav.list.property') || 'List Your Property'}
@@ -114,9 +113,8 @@ const Navigation = () => {
                     key={link.label}
                     to={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block w-full text-lg font-medium transition-all duration-200 hover:text-primary hover:translate-x-2 ${
-                      isActive ? 'text-primary' : 'text-foreground'
-                    }`}
+                    className={`block w-full text-lg font-medium transition-all duration-200 hover:text-primary hover:translate-x-2 ${isActive ? 'text-primary' : 'text-foreground'
+                      }`}
                   >
                     {link.label}
                   </Link>

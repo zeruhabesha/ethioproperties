@@ -39,7 +39,7 @@ const Hero = () => {
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight animate-slide-up [animation-delay:200ms]">
             {t('hero.title')} <br />
-            <span className="text-secondary bg-clip-text text-transparent bg-gradient-to-r from-secondary to-accent">
+            <span className="text-secondary">
               {t('hero.subtitle')}
             </span>
           </h1>
