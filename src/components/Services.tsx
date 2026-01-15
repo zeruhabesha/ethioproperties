@@ -1,95 +1,63 @@
 import { useState } from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
 import DecorativePattern from './DecorativePattern';
-import { Home, Building2, Wrench, DollarSign, Users, Compass, ChevronRight, Check } from 'lucide-react';
+import { Building2, LineChart, Users, ShieldCheck, ChevronRight, Check, Compass, PenTool } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Services = () => {
-  const { t } = useLanguage();
   const [activeService, setActiveService] = useState<number>(0);
 
   const services = [
     {
-      icon: Home,
-      title: t('services.residential.title'),
-      desc: t('services.residential.desc'),
+      icon: PenTool,
+      title: "Architectural Preparation",
+      desc: "We start by enhancing your property's value through an architect's lens.",
       items: [
-        t('services.residential.item1'),
-        t('services.residential.item2'),
-        t('services.residential.item3'),
-        t('services.residential.item4'),
-        t('services.residential.item5'),
-        t('services.residential.item6'),
+        "Property Assessment & Structural Review",
+        "Strategic Renovation Suggestions",
+        "Interior Staging & Photography",
+        "Energy Efficiency Improvements"
       ],
-      gradient: 'from-emerald-500 to-teal-600',
-      bgGradient: 'from-emerald-500/10 to-teal-600/5',
+      gradient: 'from-secondary to-amber-600',
+      bgGradient: 'from-secondary/10 to-amber-600/5',
     },
     {
-      icon: Building2,
-      title: t('services.commercial.title'),
-      desc: t('services.commercial.desc'),
+      icon: LineChart,
+      title: "Strategic Marketing",
+      desc: "Data-driven pricing and premium branding to attract the right tenants.",
       items: [
-        t('services.commercial.item1'),
-        t('services.commercial.item2'),
-        t('services.commercial.item3'),
-        t('services.commercial.item4'),
-        t('services.commercial.item5'),
+        "Rental Pricing Strategy Analysis",
+        "Professional Brochure Creation",
+        "High-End Online Listings",
+        "Virtual Tours & Walkthroughs"
       ],
       gradient: 'from-blue-500 to-indigo-600',
       bgGradient: 'from-blue-500/10 to-indigo-600/5',
     },
     {
-      icon: Wrench,
-      title: t('services.maintenance.title'),
-      desc: t('services.maintenance.desc'),
-      items: [
-        t('services.maintenance.item1'),
-        t('services.maintenance.item2'),
-        t('services.maintenance.item3'),
-        t('services.maintenance.item4'),
-        t('services.maintenance.item5'),
-      ],
-      gradient: 'from-orange-500 to-amber-600',
-      bgGradient: 'from-orange-500/10 to-amber-600/5',
-    },
-    {
-      icon: DollarSign,
-      title: t('services.financial.title'),
-      desc: t('services.financial.desc'),
-      items: [
-        t('services.financial.item1'),
-        t('services.financial.item2'),
-        t('services.financial.item3'),
-        t('services.financial.item4'),
-      ],
-      gradient: 'from-green-500 to-emerald-600',
-      bgGradient: 'from-green-500/10 to-emerald-600/5',
-    },
-    {
       icon: Users,
-      title: t('services.tenant.title'),
-      desc: t('services.tenant.desc'),
+      title: "Tenant Acquisition",
+      desc: "Rigorous screening and seamless leasing to ensure reliable occupancy.",
       items: [
-        t('services.tenant.item1'),
-        t('services.tenant.item2'),
-        t('services.tenant.item3'),
-        t('services.tenant.item4'),
+        "Comprehensive Tenant Screening",
+        "Credit & Background Checks",
+        "Legal Documentation Handling",
+        "Lease Negotiations & Signing"
       ],
-      gradient: 'from-purple-500 to-violet-600',
-      bgGradient: 'from-purple-500/10 to-violet-600/5',
+      gradient: 'from-emerald-500 to-teal-600',
+      bgGradient: 'from-emerald-500/10 to-teal-600/5',
     },
     {
-      icon: Compass,
-      title: t('services.architecture.title'),
-      desc: t('services.architecture.desc'),
+      icon: ShieldCheck,
+      title: "Total Management",
+      desc: "Ongoing oversight of your asset's financial and physical health.",
       items: [
-        t('services.architecture.item1'),
-        t('services.architecture.item2'),
-        t('services.architecture.item3'),
-        t('services.architecture.item4'),
+        "Proactive Architectural Maintenance",
+        "Rent Collection & Financial Reporting",
+        "Contractor Coordination",
+        "Exit & Turnover Management"
       ],
-      gradient: 'from-slate-500 to-gray-600',
-      bgGradient: 'from-slate-500/10 to-gray-600/5',
+      gradient: 'from-primary to-slate-800',
+      bgGradient: 'from-primary/10 to-slate-800/5',
     },
   ];
 
@@ -107,10 +75,10 @@ const Services = () => {
           {/* Header */}
           <div className="text-center mb-10 sm:mb-12 md:mb-16">
             <span className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6">
-              <span className="text-xs sm:text-sm font-medium text-primary">{t('services.label')}</span>
+              <span className="text-xs sm:text-sm font-medium text-primary">Delegated Services</span>
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground text-architectural">
-              {t('services.title')}
+              Expert Management
             </h2>
           </div>
 
@@ -164,7 +132,7 @@ const Services = () => {
             {/* Active Service Details */}
             <div className="lg:col-span-3">
               <div className={cn(
-                "bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 h-full border border-border"
+                "bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 h-full border border-border transition-all duration-500"
               )}>
                 <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
                   <div className={cn(
@@ -184,7 +152,7 @@ const Services = () => {
                   {activeServiceData.items.map((item, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-3 bg-background/60 backdrop-blur-sm rounded-xl p-4 border border-border/50"
+                      className="flex items-start gap-3 bg-background/60 backdrop-blur-sm rounded-xl p-4 border border-border/50 hover:bg-background hover:shadow-sm transition-all"
                     >
                       <div className={cn(
                         "w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 bg-primary"
@@ -194,6 +162,12 @@ const Services = () => {
                       <span className="text-foreground font-medium">{item}</span>
                     </div>
                   ))}
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-border flex justify-end">
+                  <a href="/services" className="text-primary font-semibold hover:underline inline-flex items-center gap-2">
+                    View All Services <ChevronRight className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             </div>

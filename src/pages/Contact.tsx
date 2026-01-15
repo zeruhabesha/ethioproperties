@@ -72,7 +72,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">{t('contact.phone.title') || 'Phone & WhatsApp'}</h4>
-                    <p className="text-muted-foreground">{t('contact.phone') || '+251 911 234 567'}<br />{t('contact.phone2') || '+251 115 550 123'}</p>
+                    <p className="text-muted-foreground">{t('contact.phone') || '+251 92 939 7215'}</p>
                   </div>
                 </div>
 
@@ -82,7 +82,10 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">{t('contact.email.title') || 'Email Contact'}</h4>
-                    <p className="text-muted-foreground">{t('contact.email.info') || 'info@ethiocoreproperty.com'}<br />{t('contact.email.sales') || 'sales@ethiocoreproperty.com'}</p>
+                    <p className="text-muted-foreground">
+                      {t('contact.email.info') || 'info@ethioproperties.com'}<br />
+                      Derejemelat28@gmail.com
+                    </p>
                   </div>
                 </div>
               </div>

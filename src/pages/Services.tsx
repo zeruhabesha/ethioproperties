@@ -1,86 +1,136 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Home, Building2, Wrench, DollarSign, Users, Compass } from 'lucide-react';
+import {
+  Building2,
+  FileText,
+  Megaphone,
+  UserCheck,
+  TrendingUp,
+  Camera,
+  Key,
+  Wrench,
+  PiggyBank,
+  LogOut
+} from 'lucide-react';
+import InteractiveCard from "@/components/InteractiveCard";
+import DecorativePattern from "@/components/DecorativePattern";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Services = () => {
+  const { t } = useLanguage();
+
   const services = [
     {
-      icon: Home,
-      title: "Residential Sales & Leasing",
-      description: "Whether you're buying your dream home or looking to rent, we offer a wide range of residential options including apartments, villas, and condominiums."
+      icon: Building2,
+      title: t('services.page.assessment.title'),
+      description: t('services.page.assessment.desc')
     },
     {
-      icon: Building2,
-      title: "Commercial Real Estate",
-      description: "We help businesses find the perfect office space, retail location, or warehouse to support their growth and operations."
+      icon: FileText,
+      title: t('services.page.legal.title'),
+      description: t('services.page.legal.desc')
+    },
+    {
+      icon: Megaphone,
+      title: t('services.page.marketing.title'),
+      description: t('services.page.marketing.desc')
+    },
+    {
+      icon: UserCheck,
+      title: t('services.page.screening.title'),
+      description: t('services.page.screening.desc')
+    },
+    {
+      icon: TrendingUp,
+      title: t('services.page.pricing.title'),
+      description: t('services.page.pricing.desc')
+    },
+    {
+      icon: Camera,
+      title: t('services.page.staging.title'),
+      description: t('services.page.staging.desc')
+    },
+    {
+      icon: Key,
+      title: t('services.page.viewings.title'),
+      description: t('services.page.viewings.desc')
     },
     {
       icon: Wrench,
-      title: "Property Management",
-      description: "End-to-end management services for property owners, including tenant screening, maintenance, rent collection, and legal compliance."
+      title: t('services.page.oversight.title'),
+      description: t('services.page.oversight.desc')
     },
     {
-      icon: DollarSign,
-      title: "Property Valuation",
-      description: "Accurate and reliable property valuation services for buyers, sellers, and financial institutions."
+      icon: PiggyBank,
+      title: t('services.page.finance.title'),
+      description: t('services.page.finance.desc')
     },
     {
-      icon: Users,
-      title: "Investment Consultancy",
-      description: "Expert advice on real estate investment opportunities in Ethiopia, ensuring high returns and asset security."
-    },
-    {
-      icon: Compass,
-      title: "Legal Assistance",
-      description: "Comprehensive legal support for all real estate transactions, ensuring a smooth and hassle-free process."
+      icon: LogOut,
+      title: t('services.page.exit.title'),
+      description: t('services.page.exit.desc')
     }
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background selection:bg-primary/20">
       <Navigation />
 
-      {/* Header */}
-      <section className="pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 bg-background border-b border-border/50">
-        <div className="container mx-auto px-4 sm:px-6 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-5 md:mb-6">Our Services</h1>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive real estate solutions tailored to your needs. From finding your dream home to managing your investments.
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 z-0 bg-primary/5">
+          <DecorativePattern variant="grid" opacity={0.05} />
+        </div>
+
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <span className="inline-block py-1 px-3 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-6 animate-fade-in-up">
+            {t('services.page.fullservice')}
+          </span>
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in-up [animation-delay:200ms] whitespace-pre-line">
+            {t('services.page.hero.title')}
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in-up [animation-delay:400ms] leading-relaxed">
+            {t('services.page.hero.desc')}
           </p>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 flex-grow">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <section className="py-20 px-6 flex-grow relative">
+        <DecorativePattern variant="dots" className="text-primary/5" />
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div
+              <InteractiveCard
                 key={index}
-                className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-card border border-border/50 hover:shadow-xl hover:border-primary/50 transition-all duration-300 group"
+                hoverEffect="lift"
+                className="group p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 h-full flex flex-col"
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/5 flex items-center justify-center text-primary mb-4 sm:mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                  <service.icon className="w-6 h-6 sm:w-7 sm:h-7" />
+                <div className="w-14 h-14 rounded-xl bg-primary/5 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-500 group-hover:scale-110">
+                  <service.icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-foreground">{service.title}</h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <h3 className="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed flex-grow">
                   {service.description}
                 </p>
-              </div>
+              </InteractiveCard>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-12 sm:py-16 md:py-20 bg-primary text-white">
-        <div className="container mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">Need a Custom Service?</h2>
-          <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-6 sm:mb-8">
-            Contact us today to discuss your specific requirements. Our team is ready to provide personalized solutions.
+      <section className="py-24 bg-primary text-white relative overflow-hidden">
+        <DecorativePattern variant="geometric" opacity={0.1} />
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">{t('services.page.cta.title')}</h2>
+          <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+            {t('services.page.cta.desc')}
           </p>
-          <a href="/contact" className="inline-block bg-white text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-bold hover:bg-gray-100 transition-colors">
-            Get in Touch
+          <a href="/contact" className="inline-flex items-center justify-center bg-secondary hover:bg-white text-primary hover:text-primary px-10 py-4 rounded-full text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg">
+            {t('services.page.cta.button')}
           </a>
         </div>
       </section>

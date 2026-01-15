@@ -1,4 +1,4 @@
-import { Building2, Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { Building2, Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import DecorativePattern from './DecorativePattern';
@@ -84,11 +84,18 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-4">
                 <Phone className="w-5 h-5 text-secondary shrink-0" />
-                <span className="text-gray-400">{t('footer.phone') || '+251 91 123 4567'}</span>
+                <span className="text-gray-400">{t('footer.phone') || '+251 92 939 7215'}</span>
               </div>
               <div className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-secondary shrink-0" />
-                <span className="text-gray-400">{t('footer.email') || 'info@ethiocoreproperty.com'}</span>
+                <div className="flex flex-col">
+                  <span className="text-gray-400">{t('footer.email') || 'info@ethioproperties.com'}</span>
+                  <span className="text-gray-400 text-sm">Derejemelat28@gmail.com</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <Send className="w-5 h-5 text-secondary shrink-0" />
+                <span className="text-gray-400">@Futureplanet1</span>
               </div>
             </div>
           </div>

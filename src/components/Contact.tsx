@@ -40,15 +40,15 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      value: '+251 91 234 5678',
+      value: '+251 92 939 7215',
       subtitle: 'Mon - Sat, 9AM - 6PM',
       gradient: 'from-green-500 to-emerald-500',
     },
     {
       icon: Mail,
       title: 'Email',
-      value: 'info@ownproperty.et',
-      subtitle: 'We respond within 24 hours',
+      value: 'info@ethioproperties.com',
+      subtitle: 'Derejemelat28@gmail.com',
       gradient: 'from-purple-500 to-violet-500',
     },
   ];
@@ -57,7 +57,7 @@ const Contact = () => {
     <section id="contact" className="py-24 bg-background relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -78,7 +78,7 @@ const Contact = () => {
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
               return (
-                <div 
+                <div
                   key={index}
                   className="bg-card border border-border rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300 group hover:-translate-y-1"
                 >
@@ -104,15 +104,15 @@ const Contact = () => {
                   <p className="text-sm text-muted-foreground">We'll get back to you shortly</p>
                 </div>
               </div>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">{t('contact.name')}</label>
-                  <Input 
-                    type="text" 
-                    value={formData.name} 
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
-                    required 
+                  <Input
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    required
                     className="h-12 bg-background border-border focus:border-primary focus:ring-primary/20"
                     placeholder="Your full name"
                   />
@@ -120,21 +120,21 @@ const Contact = () => {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">{t('contact.email')}</label>
-                    <Input 
-                      type="email" 
-                      value={formData.email} 
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
-                      required 
+                    <Input
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      required
                       className="h-12 bg-background border-border focus:border-primary focus:ring-primary/20"
                       placeholder="your@email.com"
                     />
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">{t('contact.phone')}</label>
-                    <Input 
-                      type="tel" 
-                      value={formData.phone} 
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })} 
+                    <Input
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="h-12 bg-background border-border focus:border-primary focus:ring-primary/20"
                       placeholder="+251 91 234 5678"
                     />
@@ -142,19 +142,19 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">{t('contact.message')}</label>
-                  <Textarea 
-                    value={formData.message} 
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })} 
-                    required 
-                    rows={5} 
+                  <Textarea
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    required
+                    rows={5}
                     className="bg-background resize-none border-border focus:border-primary focus:ring-primary/20"
                     placeholder="Tell us about your property..."
                   />
                 </div>
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full h-14 text-lg bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25" 
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full h-14 text-lg bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -176,7 +176,7 @@ const Contact = () => {
             <div className="lg:col-span-2 space-y-6">
               <div className="bg-card border border-border rounded-3xl p-8 h-full">
                 <h3 className="text-xl font-bold text-foreground mb-6">{t('contact.or')}</h3>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-center gap-4 p-4 bg-background/60 backdrop-blur-sm rounded-2xl border border-border/50">
                     <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center shadow-lg">

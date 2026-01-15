@@ -23,6 +23,7 @@ const Navigation = () => {
 
   const navLinks = [
     { label: t('nav.home'), href: "/" },
+    { label: t('nav.services'), href: "/services" },
     { label: t('nav.properties') || "Properties", href: "/properties" },
     { label: t('nav.about'), href: "/about" },
     { label: t('nav.contact'), href: "/contact" },
