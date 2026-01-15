@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import DecorativePattern from "@/components/DecorativePattern";
+import { HelpCircle, MessageCircle, ArrowRight } from "lucide-react";
 
 const faqs = [
   {
@@ -82,67 +84,76 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background selection:bg-primary/20 flex flex-col">
       <Navigation />
-      
+
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="container mx-auto max-w-4xl">
-          <span className="text-minimal text-primary mb-4 block">FAQ</span>
-          <h1 className="text-4xl md:text-6xl font-serif text-foreground mb-6 text-architectural">
-            Common Questions
+      <section className="relative pt-32 pb-20 overflow-hidden bg-primary/5">
+        <div className="absolute inset-0 z-0">
+          <DecorativePattern variant="grid" opacity={0.05} />
+        </div>
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6 animate-fade-in-up">
+            <HelpCircle className="w-8 h-8 text-secondary" />
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in-up [animation-delay:100ms]">
+            Frequently Asked Questions
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl">
-            Find answers to frequently asked questions about our services, 
-            processes, and how we can help you with your property needs.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up [animation-delay:200ms] leading-relaxed">
+            Find answers to common questions about our services, processes, and how we can help you with your property needs.
           </p>
         </div>
       </section>
 
       {/* FAQ Sections */}
-      <section className="pb-24 px-6">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-20 px-6 flex-grow relative">
+        <DecorativePattern variant="dots" className="text-primary/5 fixed left-0 top-1/2 -translate-y-1/2" />
+        <div className="container mx-auto max-w-4xl relative z-10">
           {faqs.map((section, sectionIndex) => (
-            <div key={section.category} className="mb-12">
-              <h2 className="text-2xl font-serif text-foreground mb-6">
+            <div key={section.category} className="mb-12 animate-fade-in-up" style={{ animationDelay: `${sectionIndex * 100}ms` }}>
+              <h2 className="text-2xl font-bold text-primary mb-6 flex items-center">
+                <span className="w-8 h-1 bg-secondary mr-3 rounded-full"></span>
                 {section.category}
               </h2>
-              <Accordion type="single" collapsible className="space-y-4">
-                {section.questions.map((faq, index) => (
-                  <AccordionItem 
-                    key={index} 
-                    value={`${sectionIndex}-${index}`}
-                    className="bg-card rounded-lg border-none px-6"
-                  >
-                    <AccordionTrigger className="text-left hover:no-underline py-6">
-                      <span className="text-foreground font-medium pr-4">
+              <div className="bg-card rounded-2xl border border-border/50 shadow-sm overflow-hidden">
+                <Accordion type="single" collapsible className="w-full">
+                  {section.questions.map((faq, index) => (
+                    <AccordionItem
+                      key={index}
+                      value={`${sectionIndex}-${index}`}
+                      className="border-b border-border/50 last:border-0 px-6"
+                    >
+                      <AccordionTrigger className="text-left py-6 hover:text-primary transition-colors text-lg font-medium">
                         {faq.question}
-                      </span>
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground pb-6">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground pb-6 leading-relaxed text-base">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-card">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4 text-architectural">
+      <section className="py-24 px-6 relative overflow-hidden bg-primary text-white">
+        <DecorativePattern variant="geometric" opacity={0.1} />
+        <div className="container mx-auto max-w-4xl text-center relative z-10">
+          <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+            <MessageCircle className="w-8 h-8 text-white" />
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Still Have Questions?
           </h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            Our team is here to help. Reach out and we'll get back to you 
-            with personalized answers to your specific questions.
+          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Can't find the answer you're looking for? Our team is here to help. Reach out and we'll get back to you with personalized answers.
           </p>
           <Link to="/contact">
-            <Button size="lg" className="px-8">
-              Contact Us
+            <Button size="lg" variant="secondary" className="px-10 py-6 text-lg bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 shadow-xl group">
+              Contact Us <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>

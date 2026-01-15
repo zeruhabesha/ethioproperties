@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-interface InteractiveCardProps {
+interface InteractiveCardProps extends React.ComponentPropsWithoutRef<'div'> {
   children: React.ReactNode;
   hoverEffect?: 'lift' | 'glow' | 'scale' | 'tilt';
-  className?: string;
+  className?: string; // Explicitly included, though ComponentPropsWithoutRef<'div'> has it, for clarity if needed or remove redudancy
   onClick?: () => void;
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
 }
 
 const InteractiveCard: React.FC<InteractiveCardProps> = ({
@@ -14,13 +14,14 @@ const InteractiveCard: React.FC<InteractiveCardProps> = ({
   className = '',
   onClick,
   as: Component = 'div',
+  ...rest
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
 
   const getHoverEffectClasses = (effect: string): string => {
     const baseClasses = 'transition-all duration-300 ease-out';
-    
+
     switch (effect) {
       case 'lift':
         return `${baseClasses} hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/25`;
@@ -37,7 +38,7 @@ const InteractiveCard: React.FC<InteractiveCardProps> = ({
 
   const getPressedClasses = (): string => {
     if (!isPressed) return '';
-    
+
     switch (hoverEffect) {
       case 'lift':
         return 'transform translate-y-0 shadow-lg';
@@ -72,6 +73,7 @@ const InteractiveCard: React.FC<InteractiveCardProps> = ({
     onMouseDown: onClick ? handleMouseDown : undefined,
     onMouseUp: onClick ? handleMouseUp : undefined,
     onClick,
+    ...rest,
     ...(onClick && {
       role: 'button',
       tabIndex: 0,
