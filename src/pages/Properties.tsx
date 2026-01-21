@@ -15,7 +15,6 @@ import {
     Heart,
     ArrowRight,
     Filter,
-    Home,
     Building,
     Briefcase,
     LandPlot
@@ -146,64 +145,155 @@ const Properties = () => {
         return matchesSearch && matchesFilter;
     });
 
+    const services = [
+        {
+            title: t('services.page.assessment.title') || "Property Assessment",
+            description: t('services.page.assessment.desc') || "We provide accurate and comprehensive property valuation services.",
+            icon: Building
+        },
+        {
+            title: t('services.page.legal.title') || "Legal Support",
+            description: t('services.page.legal.desc') || "Expert legal guidance for all your real estate transactions.",
+            icon: Briefcase
+        },
+        {
+            title: t('services.page.marketing.title') || "Strategic Marketing",
+            description: t('services.page.marketing.desc') || "Targeted marketing campaigns to sell your property faster.",
+            icon: LandPlot // Using LandPlot as a placeholder for a 'Graph' or 'Target' type icon if unavailable
+        }
+    ];
+
     return (
         <div className="min-h-screen flex flex-col bg-background selection:bg-primary/20">
             <Navigation />
 
-            {/* Hero Section */}
-            <section className="relative pt-32 pb-20 overflow-hidden">
-                <div className="absolute inset-0 z-0 bg-primary/5">
-                    <DecorativePattern variant="grid" opacity={0.05} />
-                </div>
+            {/* Hero Section - Service Focused */}
+            <section className="relative pt-32 pb-20 overflow-hidden bg-primary/5">
+                <div className="absolute inset-0 z-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02]" />
+                <DecorativePattern variant="grid" opacity={0.05} />
                 <div className="container mx-auto px-6 text-center relative z-10">
                     <span className="inline-block py-1 px-3 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-6 animate-fade-in-up">
-                        {t('properties.exclusive')}
+                        {t('services.page.fullservice') || "Comprehensive Real Estate Solutions"}
                     </span>
                     <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in-up [animation-delay:200ms]">
-                        {t('properties.title') || "Premium Listings"}
+                        {/* {t('properties.title') || "Premium Listings"} - Changed to a broader title */}
+                        More Than Just a Brokerage
                     </h1>
-                    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up [animation-delay:400ms]">
-                        {t('properties.description')}
+                    <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in-up [animation-delay:400ms]">
+                        We offer a full spectrum of real estate services, from expert valuation and legal compliance to strategic marketing and portfolio management. Experience the difference of a true partner.
                     </p>
                 </div>
             </section>
 
-            {/* Filter Section */}
-            <section className="py-8 px-6 sticky top-20 z-40 bg-background/80 backdrop-blur-md border-b border-border/50 transition-all duration-300">
+            {/* Services Highlight Section */}
+            <section className="py-20 px-6 bg-background relative overflow-hidden">
                 <div className="container mx-auto">
-                    <div className="flex flex-col md:flex-row gap-4 items-center justify-between p-4 bg-card/50 rounded-2xl border border-border/50 shadow-sm">
-                        <div className="relative w-full md:w-96 group">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                            <Input
-                                placeholder={t('properties.search') || "Search properties..."}
-                                className="pl-10 bg-background border-border/50 focus:border-secondary transition-colors"
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                            />
-                        </div>
+                    <div className="text-center max-w-2xl mx-auto mb-16">
+                        <h2 className="text-3xl font-bold mb-4">Our Expertise</h2>
+                        <p className="text-muted-foreground">Tailored services designed to maximize the value of your real estate assets.</p>
+                    </div>
 
-                        <div className="flex gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 no-scrollbar items-center">
-                            <Filter className="w-4 h-4 text-muted-foreground mr-2 hidden md:block" />
-                            {['All', 'Villa', 'Apartment', 'Commercial'].map((type) => (
-                                <Button
-                                    key={type}
-                                    variant={filter === type ? "default" : "outline"}
-                                    onClick={() => setFilter(type)}
-                                    className={`rounded-full px-6 transition-all duration-300 ${filter === type
-                                            ? 'bg-primary text-white shadow-md scale-105'
-                                            : 'hover:border-secondary/50 hover:text-secondary'
-                                        }`}
-                                >
-                                    {type}
-                                </Button>
-                            ))}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {services.map((service, index) => (
+                            <div key={index} className="p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/50 hover:shadow-lg transition-all duration-300 group">
+                                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+                                    <service.icon className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
+                                <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* The Process / Methodology */}
+            <section className="py-20 px-6 bg-card/50 border-y border-border/50">
+                <div className="container mx-auto">
+                    <div className="flex flex-col md:flex-row items-center gap-12">
+                        <div className="w-full md:w-1/2">
+                            <div className="relative">
+                                <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl blur-xl opacity-70" />
+                                <img
+                                    src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000"
+                                    alt="Our Team"
+                                    className="relative rounded-xl shadow-2xl w-full object-cover aspect-video"
+                                />
+                            </div>
+                        </div>
+                        <div className="w-full md:w-1/2">
+                            <h2 className="text-3xl font-bold mb-6">A Seamless Experience</h2>
+                            <div className="space-y-6">
+                                <div className="flex gap-4">
+                                    <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
+                                    <div>
+                                        <h4 className="font-bold text-lg">Consultation & Strategy</h4>
+                                        <p className="text-muted-foreground">We start by understanding your goals and developing a customized plan.</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <div className="w-8 h-8 rounded-full bg-secondary text-primary flex items-center justify-center font-bold flex-shrink-0">2</div>
+                                    <div>
+                                        <h4 className="font-bold text-lg">Market Analysis & Valuation</h4>
+                                        <p className="text-muted-foreground">Using data-driven insights to determine the optimal position for your property.</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+                                    <div>
+                                        <h4 className="font-bold text-lg">Execution & Closing</h4>
+                                        <p className="text-muted-foreground">Handling all negotiations, paperwork, and legalities for a stress-free transaction.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
+            {/* Filter Section (Now secondary) */}
+            <section id="listings" className="pt-20 pb-8 px-6 sticky top-20 z-40 bg-background/95 backdrop-blur-md transition-all duration-300">
+                <div className="container mx-auto">
+                    <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+                        <div>
+                            <h2 className="text-2xl font-bold text-foreground">Curated Portfolio</h2>
+                            <p className="text-sm text-muted-foreground">Explore our exclusive property listings</p>
+                        </div>
+
+                        <div className="flex flex-col md:flex-row gap-4 items-center w-full md:w-auto">
+                            <div className="relative w-full md:w-64 group">
+                                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                                <Input
+                                    placeholder={t('properties.search') || "Search properties..."}
+                                    className="pl-10 bg-card border-border/50 focus:border-secondary transition-colors"
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 no-scrollbar items-center">
+                                {['All', 'Villa', 'Apartment', 'Commercial'].map((type) => (
+                                    <Button
+                                        key={type}
+                                        variant={filter === type ? "default" : "outline"}
+                                        onClick={() => setFilter(type)}
+                                        className={`rounded-full px-4 text-sm transition-all duration-300 ${filter === type
+                                            ? 'bg-primary text-white shadow-md'
+                                            : 'hover:border-secondary/50 hover:text-secondary'
+                                            }`}
+                                    >
+                                        {type}
+                                    </Button>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="h-px w-full bg-border/50 mt-6" />
+                </div>
+            </section>
+
             {/* Properties Grid */}
-            <section className="py-12 px-6 flex-grow relative">
+            <section className="py-8 px-6 flex-grow relative">
                 <DecorativePattern variant="dots" className="text-primary/5 right-0 bottom-0" />
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -1,85 +1,68 @@
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import VideoBackground from './VideoBackground';
-import VideoControls from './VideoControls';
+import InteractiveBackground from './InteractiveBackground';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Link } from 'react-router-dom';
-import HeroButtons from './HeroButtons';
 
 const Hero = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const { ref: heroRef, className: heroAnimationClass } = useScrollAnimation('fadeIn', { triggerOnce: true });
   const { t } = useLanguage();
 
   return (
     <section
       ref={heroRef}
-      className={`relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden ${heroAnimationClass}`}
+      className={`relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden ${heroAnimationClass}`}
     >
-      {/* Video Background with Fallback */}
-      <VideoBackground
-        src="/hero-video.mp4"
-        fallbackImage="https://images.unsplash.com/photo-1600596542815-2a4d9f6fac90?q=80&w=2075&auto=format&fit=crop"
-        className="z-0"
-        poster="https://images.unsplash.com/photo-1600596542815-2a4d9f6fac90?q=80&w=2075&auto=format&fit=crop"
-      />
+      {/* Interactive Background */}
+      <InteractiveBackground />
 
-      {/* Video Controls for Accessibility */}
-      <div className="absolute top-6 right-6 z-20">
-        <VideoControls videoRef={videoRef} />
-      </div>
+      <div className="container relative z-10 px-6 text-center">
+        <div className="max-w-4xl mx-auto space-y-8">
 
-      <div className="container relative z-10 px-4 sm:px-6 pt-16 sm:pt-20">
-        <div className="max-w-3xl space-y-4 sm:space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white w-fit animate-slide-up">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-xs sm:text-sm font-medium">{t('hero.badge') || 'No. 1 Real Estate Platform in Ethiopia'}</span>
+          {/* Simple Badge */}
+          <div className="inline-block animate-slide-up">
+            <span className="px-4 py-1.5 rounded-full border border-white/30 text-white/90 text-sm font-medium tracking-wide">
+              {t('hero.badge') || 'Premium Real Estate'}
+            </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight animate-slide-up [animation-delay:200ms]">
-            {t('hero.title')} <br />
-            <span className="text-secondary">
-              {t('hero.subtitle')}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight animate-slide-up [animation-delay:100ms]">
+            {t('hero.title') || "Find Your Dream Home"} <br />
+            <span className="text-secondary/90">
+              {t('hero.subtitle') || "In Ethiopia"}
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-xl leading-relaxed animate-slide-up [animation-delay:400ms]">
-            {t('hero.description')}
-          </p>
-
           {/* Call to Action Buttons */}
-          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 animate-slide-up [animation-delay:600ms]">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 animate-slide-up [animation-delay:300ms]">
             <Button
               size="lg"
-              className="h-12 sm:h-14 px-6 sm:px-8 rounded-xl text-base sm:text-lg font-semibold shadow-lg hover:shadow-primary/25 hover:scale-105 active:scale-95 transition-all duration-200 focus:ring-2 focus:ring-primary/50 focus:ring-offset-2"
+              className="h-14 px-8 rounded-full text-lg font-semibold bg-white text-primary hover:bg-gray-100 transition-all duration-300"
             >
               {t('hero.cta')}
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="h-12 sm:h-14 px-6 sm:px-8 rounded-xl text-base sm:text-lg font-semibold border-white text-white hover:bg-white hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200"
+              className="h-14 px-8 rounded-full text-lg font-semibold border-white text-white hover:bg-white/10 hover:text-white transition-all duration-300 backdrop-blur-sm"
             >
               {t('hero.learn')}
             </Button>
           </div>
 
-          {/* Enhanced Statistics with Staggered Animation */}
-          <div className="pt-6 sm:pt-8 flex items-center gap-4 sm:gap-6 md:gap-8 text-white/80 overflow-x-auto">
-            <div className="flex flex-col animate-slide-up [animation-delay:800ms]">
-              <span className="text-2xl sm:text-3xl font-bold text-white">{t('hero.stats.listings') || '1200+'}</span>
-              <span className="text-xs sm:text-sm">{t('hero.stats.listings.label') || 'Premium Listings'}</span>
+          {/* Simplified Stats */}
+          <div className="pt-12 flex items-center justify-center gap-12 text-white animate-slide-up [animation-delay:400ms]">
+            <div className="text-center">
+              <div className="text-3xl font-bold">{t('hero.stats.listings') || '1200+'}</div>
+              <div className="text-sm text-white/60 uppercase tracking-wider">{t('hero.stats.listings.label') || 'Listings'}</div>
             </div>
-            <div className="h-8 sm:h-10 w-px bg-white/20 flex-shrink-0" />
-            <div className="flex flex-col animate-slide-up [animation-delay:900ms]">
-              <span className="text-2xl sm:text-3xl font-bold text-white">{t('hero.stats.clients') || '500+'}</span>
-              <span className="text-xs sm:text-sm">{t('hero.stats.clients.label') || 'Happy Clients'}</span>
+            <div className="text-center">
+              <div className="text-3xl font-bold">{t('hero.stats.clients') || '500+'}</div>
+              <div className="text-sm text-white/60 uppercase tracking-wider">{t('hero.stats.clients.label') || 'Clients'}</div>
             </div>
-            <div className="h-8 sm:h-10 w-px bg-white/20 flex-shrink-0" />
-            <div className="flex flex-col animate-slide-up [animation-delay:1000ms]">
-              <span className="text-2xl sm:text-3xl font-bold text-white">{t('hero.stats.support') || '24/7'}</span>
-              <span className="text-xs sm:text-sm">{t('hero.stats.support.label') || 'Support'}</span>
+            <div className="text-center">
+              <div className="text-3xl font-bold">{t('hero.stats.support') || '24/7'}</div>
+              <div className="text-sm text-white/60 uppercase tracking-wider">{t('hero.stats.support.label') || 'Support'}</div>
             </div>
           </div>
         </div>
