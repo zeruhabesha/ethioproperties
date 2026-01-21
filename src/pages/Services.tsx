@@ -74,7 +74,7 @@ const Services = () => {
     <div className="flex flex-col bg-background selection:bg-primary/20">
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden sticky top-0 z-0">
         <div className="absolute inset-0 z-0 bg-primary/5">
           <DecorativePattern variant="grid" opacity={0.05} />
         </div>
@@ -92,35 +92,39 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 px-6 flex-grow relative">
-        <DecorativePattern variant="dots" className="text-primary/5" />
-        <div className="container mx-auto max-w-7xl relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <InteractiveCard
-                key={index}
-                hoverEffect="lift"
-                className="group p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 h-full flex flex-col"
-              >
-                <div className="w-14 h-14 rounded-xl bg-primary/5 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-500 group-hover:scale-110">
-                  <service.icon className="w-7 h-7" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed flex-grow">
-                  {service.description}
-                </p>
-              </InteractiveCard>
-            ))}
+      <div className="relative z-10 bg-background">
+        {/* Services Grid */}
+        <section className="py-20 px-6 flex-grow relative">
+          <DecorativePattern variant="dots" className="text-primary/5" />
+          <div className="container mx-auto max-w-7xl relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service, index) => (
+                <InteractiveCard
+                  key={index}
+                  hoverEffect="lift"
+                  className="group p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 h-full flex flex-col"
+                >
+                  <div className="w-14 h-14 rounded-xl bg-primary/5 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-500 group-hover:scale-110">
+                    <service.icon className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed flex-grow">
+                    {service.description}
+                  </p>
+                </InteractiveCard>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-primary text-white relative overflow-hidden">
-        <DecorativePattern variant="geometric" opacity={0.1} />
+      </div>
+
+
+      {/* CTA - Fixed Background Parallax */}
+      <section className="py-24 bg-primary text-white relative overflow-hidden" style={{ clipPath: 'inset(0)' }}>
+        <DecorativePattern variant="geometric" opacity={0.1} className="fixed inset-0" />
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">{t('services.page.cta.title')}</h2>
           <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -131,7 +135,7 @@ const Services = () => {
           </a>
         </div>
       </section>
-    </div>
+    </div >
   );
 };
 

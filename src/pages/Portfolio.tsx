@@ -65,7 +65,7 @@ const Portfolio = () => {
     <div className="bg-background">
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-32 pb-20 px-6 sticky top-0 z-0">
         <div className="container mx-auto max-w-6xl">
           <span className="text-minimal text-primary mb-4 block">Our Work</span>
           <h1 className="text-4xl md:text-6xl font-serif text-foreground mb-6 text-architectural">
@@ -78,43 +78,45 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="pb-24 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={project.id}
-                className="group cursor-pointer"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="relative overflow-hidden rounded-lg mb-4">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-500" />
-                  <div className="absolute top-4 right-4 w-12 h-12 bg-background rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                    <ArrowUpRight className="w-5 h-5 text-foreground" />
+      <div className="relative z-10 bg-background">
+        {/* Projects Grid */}
+        <section className="pb-24 px-6">
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid md:grid-cols-2 gap-8">
+              {projects.map((project, index) => (
+                <div
+                  key={project.id}
+                  className="group cursor-pointer"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="relative overflow-hidden rounded-lg mb-4">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-500" />
+                    <div className="absolute top-4 right-4 w-12 h-12 bg-background rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                      <ArrowUpRight className="w-5 h-5 text-foreground" />
+                    </div>
+                  </div>
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <span className="text-minimal text-primary">{project.category}</span>
+                      <h3 className="text-xl font-serif text-foreground mt-1">{project.title}</h3>
+                      <p className="text-muted-foreground text-sm mt-2">{project.description}</p>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-sm text-muted-foreground">{project.location}</span>
+                      <p className="text-xs text-muted-foreground mt-1">{project.year}</p>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <span className="text-minimal text-primary">{project.category}</span>
-                    <h3 className="text-xl font-serif text-foreground mt-1">{project.title}</h3>
-                    <p className="text-muted-foreground text-sm mt-2">{project.description}</p>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-sm text-muted-foreground">{project.location}</span>
-                    <p className="text-xs text-muted-foreground mt-1">{project.year}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };

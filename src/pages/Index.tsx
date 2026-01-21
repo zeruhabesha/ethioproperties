@@ -15,15 +15,24 @@ const Index = () => {
   return (
     <>
       <Hero />
-      <Partners />
-      <FeaturedProperties />
-      <WhyChooseUs />
-      <Services />
-      <Statistics />
-      <Testimonials />
-      <About />
-      <Process />
-      <ServicePackages />
+      <div className="relative z-10 bg-background">
+        <Partners />
+        <FeaturedProperties />
+        <WhyChooseUs />
+        <Services />
+        <Statistics />
+        <Testimonials />
+      </div>
+
+      {/* Sticky About Section */}
+      <div className="sticky top-0 z-0">
+        <About />
+      </div>
+
+      <div className="relative z-10 bg-background">
+        <Process />
+        <ServicePackages />
+      </div>
     </>
   );
 };

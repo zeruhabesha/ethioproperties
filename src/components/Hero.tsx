@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <section
       ref={heroRef}
-      className={`relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden ${heroAnimationClass}`}
+      className={`relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden sticky top-0 z-0 ${heroAnimationClass}`}
     >
       {/* Interactive Background */}
       <InteractiveBackground />

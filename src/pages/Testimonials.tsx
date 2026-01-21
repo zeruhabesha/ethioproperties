@@ -57,7 +57,7 @@ const Testimonials = () => {
     <div className="bg-background selection:bg-primary/20 flex flex-col">
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-primary text-white">
+      <section className="relative pt-32 pb-20 overflow-hidden bg-primary text-white sticky top-0 z-0">
         <DecorativePattern variant="geometric" opacity={0.1} />
         <div className="container mx-auto px-6 text-center relative z-10">
           <span className="inline-block py-1 px-3 rounded-full bg-white/10 text-white text-sm font-medium mb-6 animate-fade-in-up border border-white/20">
@@ -73,84 +73,86 @@ const Testimonials = () => {
         </div>
       </section>
 
-      {/* Testimonials Grid */}
-      <section className="py-24 px-6 flex-grow relative">
-        <DecorativePattern variant="dots" className="text-primary/5 fixed top-0 right-0 w-1/3 h-full" />
-        <div className="container mx-auto max-w-7xl relative z-10">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={testimonial.name}
-                className="bg-card p-8 rounded-2xl border border-border/50 relative group hover:shadow-xl hover:-translate-y-2 transition-all duration-500 animate-fade-in-up flex flex-col h-full"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="absolute top-6 right-6 w-10 h-10 bg-primary/5 rounded-full flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                  <Quote className="w-5 h-5 text-primary" />
-                </div>
-
-                <div className="flex gap-1 mb-6">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-secondary text-secondary" />
-                  ))}
-                </div>
-
-                <p className="text-muted-foreground mb-8 leading-relaxed italic flex-grow">
-                  "{testimonial.text}"
-                </p>
-
-                <div className="flex items-center gap-4 pt-6 border-t border-border/50">
-                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/10 group-hover:border-primary transition-colors">
-                    {testimonial.image ? (
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-muted flex items-center justify-center">
-                        <User className="w-6 h-6 text-muted-foreground" />
-                      </div>
-                    )}
+      <div className="relative z-10 bg-background">
+        {/* Testimonials Grid */}
+        <section className="py-24 px-6 flex-grow relative">
+          <DecorativePattern variant="dots" className="text-primary/5 fixed top-0 right-0 w-1/3 h-full" />
+          <div className="container mx-auto max-w-7xl relative z-10">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={testimonial.name}
+                  className="bg-card p-8 rounded-2xl border border-border/50 relative group hover:shadow-xl hover:-translate-y-2 transition-all duration-500 animate-fade-in-up flex flex-col h-full"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="absolute top-6 right-6 w-10 h-10 bg-primary/5 rounded-full flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    <Quote className="w-5 h-5 text-primary" />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-foreground group-hover:text-primary transition-colors">{testimonial.name}</h4>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                    <p className="text-xs text-secondary font-medium mt-0.5">{testimonial.location}</p>
+
+                  <div className="flex gap-1 mb-6">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-secondary text-secondary" />
+                    ))}
+                  </div>
+
+                  <p className="text-muted-foreground mb-8 leading-relaxed italic flex-grow">
+                    "{testimonial.text}"
+                  </p>
+
+                  <div className="flex items-center gap-4 pt-6 border-t border-border/50">
+                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/10 group-hover:border-primary transition-colors">
+                      {testimonial.image ? (
+                        <img
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-muted flex items-center justify-center">
+                          <User className="w-6 h-6 text-muted-foreground" />
+                        </div>
+                      )}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-foreground group-hover:text-primary transition-colors">{testimonial.name}</h4>
+                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                      <p className="text-xs text-secondary font-medium mt-0.5">{testimonial.location}</p>
+                    </div>
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="py-24 px-6 bg-secondary relative overflow-hidden">
+          <DecorativePattern variant="grid" opacity={0.1} />
+          <div className="container mx-auto max-w-6xl text-center relative z-10 text-primary">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12">
+              Trusted by Thousands
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+                <span className="text-4xl md:text-5xl font-bold block mb-2">98%</span>
+                <p className="text-sm font-medium uppercase tracking-wider opacity-80">Client Satisfaction</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-24 px-6 bg-secondary relative overflow-hidden">
-        <DecorativePattern variant="grid" opacity={0.1} />
-        <div className="container mx-auto max-w-6xl text-center relative z-10 text-primary">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            Trusted by Thousands
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
-              <span className="text-4xl md:text-5xl font-bold block mb-2">98%</span>
-              <p className="text-sm font-medium uppercase tracking-wider opacity-80">Client Satisfaction</p>
-            </div>
-            <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
-              <span className="text-4xl md:text-5xl font-bold block mb-2">4.9</span>
-              <p className="text-sm font-medium uppercase tracking-wider opacity-80">Average Rating</p>
-            </div>
-            <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
-              <span className="text-4xl md:text-5xl font-bold block mb-2">2.5k+</span>
-              <p className="text-sm font-medium uppercase tracking-wider opacity-80">Happy Clients</p>
-            </div>
-            <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
-              <span className="text-4xl md:text-5xl font-bold block mb-2">85%</span>
-              <p className="text-sm font-medium uppercase tracking-wider opacity-80">Repeat Clients</p>
+              <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+                <span className="text-4xl md:text-5xl font-bold block mb-2">4.9</span>
+                <p className="text-sm font-medium uppercase tracking-wider opacity-80">Average Rating</p>
+              </div>
+              <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+                <span className="text-4xl md:text-5xl font-bold block mb-2">2.5k+</span>
+                <p className="text-sm font-medium uppercase tracking-wider opacity-80">Happy Clients</p>
+              </div>
+              <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+                <span className="text-4xl md:text-5xl font-bold block mb-2">85%</span>
+                <p className="text-sm font-medium uppercase tracking-wider opacity-80">Repeat Clients</p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };
