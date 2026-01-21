@@ -1,5 +1,3 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { ArrowUpRight } from "lucide-react";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
@@ -64,9 +62,8 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      
+    <div className="bg-background">
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-6xl">
@@ -75,7 +72,7 @@ const Portfolio = () => {
             Featured Projects
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Explore our portfolio of exceptional properties and developments 
+            Explore our portfolio of exceptional properties and developments
             that showcase our commitment to quality and innovation.
           </p>
         </div>
@@ -86,14 +83,14 @@ const Portfolio = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <div 
+              <div
                 key={project.id}
                 className="group cursor-pointer"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative overflow-hidden rounded-lg mb-4">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
                     className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -118,8 +115,6 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

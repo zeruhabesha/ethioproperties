@@ -45,7 +45,7 @@ const FeaturedProperties = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-gray-50 dark:bg-background/50">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-gray-50 dark:bg-background">
       <div className="container mx-auto max-w-7xl">
         <ScrollAnimation animation="fadeIn">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 sm:mb-10 md:mb-12">

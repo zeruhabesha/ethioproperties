@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Navigation from "@/components/Navigation";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
@@ -65,14 +64,13 @@ const Work = () => {
 
   const categories = ["ALL", "RESIDENTIAL", "COMMERCIAL", "CULTURAL", "HOSPITALITY"];
 
-  const filteredProjects = activeCategory === "ALL" 
-    ? projects 
+  const filteredProjects = activeCategory === "ALL"
+    ? projects
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      
+    <div className="bg-background">
+
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-6">
@@ -82,7 +80,7 @@ const Work = () => {
                 OUR WORK
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl">
-                A curated selection of our architectural projects, each telling a unique story 
+                A curated selection of our architectural projects, each telling a unique story
                 through thoughtful design and meticulous attention to detail.
               </p>
             </div>
@@ -99,18 +97,16 @@ const Work = () => {
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`text-minimal transition-colors duration-300 relative group ${
-                    activeCategory === category 
-                      ? "text-foreground" 
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
+                  className={`text-minimal transition-colors duration-300 relative group ${activeCategory === category
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                    }`}
                 >
                   {category}
-                  <span className={`absolute bottom-0 left-0 w-full h-px bg-foreground transition-transform duration-300 origin-left ${
-                    activeCategory === category 
-                      ? "scale-x-100" 
-                      : "scale-x-0 group-hover:scale-x-100"
-                  }`}></span>
+                  <span className={`absolute bottom-0 left-0 w-full h-px bg-foreground transition-transform duration-300 origin-left ${activeCategory === category
+                    ? "scale-x-100"
+                    : "scale-x-0 group-hover:scale-x-100"
+                    }`}></span>
                 </button>
               ))}
             </div>
@@ -126,13 +122,13 @@ const Work = () => {
               {filteredProjects.map((project, index) => (
                 <div key={index} className="group cursor-pointer">
                   <div className="relative overflow-hidden mb-8">
-                    <img 
-                      src={project.image} 
+                    <img
+                      src={project.image}
                       alt={project.title}
                       className="w-full h-[60vh] object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
+
                     {/* Project Category Badge */}
                     <div className="absolute top-6 left-6 bg-background/90 backdrop-blur-sm px-4 py-2">
                       <span className="text-minimal text-foreground">
@@ -140,7 +136,7 @@ const Work = () => {
                       </span>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-2xl lg:text-3xl font-light text-architectural mb-2 group-hover:text-muted-foreground transition-colors duration-500">
@@ -150,11 +146,11 @@ const Work = () => {
                         {project.location}
                       </p>
                     </div>
-                    
+
                     <p className="text-muted-foreground leading-relaxed">
                       {project.description}
                     </p>
-                    
+
                     <div className="flex gap-8 pt-4 border-t border-border">
                       <div>
                         <p className="text-minimal text-muted-foreground mb-1">AREA</p>
@@ -185,8 +181,8 @@ const Work = () => {
             <p className="text-xl text-muted-foreground mb-12">
               Let's discuss how we can bring your architectural vision to life
             </p>
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className="inline-block text-minimal text-foreground hover:text-muted-foreground transition-colors duration-300 relative group"
             >
               GET IN TOUCH

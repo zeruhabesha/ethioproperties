@@ -1,5 +1,3 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,9 +9,7 @@ const Contact = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navigation />
-
+    <div className="bg-background flex flex-col">
       {/* Header with Image Background */}
       <section className="relative pt-32 pb-20 min-h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Fixed Image Background - Clipped to Section */}
@@ -131,8 +127,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

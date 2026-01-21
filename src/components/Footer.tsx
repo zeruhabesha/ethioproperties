@@ -8,10 +8,10 @@ const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-[#0f172a] text-white pt-20 pb-10 relative overflow-hidden">
+    <footer className="bg-[#0f172a] text-white pt-12 pb-8 w-full h-full flex flex-col justify-end overflow-hidden">
       <DecorativePattern variant="diagonal" opacity={0.05} />
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
+        <div className="grid md:grid-cols-4 gap-12 mb-8">
           {/* Brand */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">

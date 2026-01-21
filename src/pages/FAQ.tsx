@@ -1,5 +1,3 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import {
   Accordion,
   AccordionContent,
@@ -84,8 +82,7 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <div className="min-h-screen bg-background selection:bg-primary/20 flex flex-col">
-      <Navigation />
+    <div className="bg-background selection:bg-primary/20 flex flex-col">
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden bg-primary/5">
@@ -158,8 +155,6 @@ const FAQ = () => {
           </Link>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

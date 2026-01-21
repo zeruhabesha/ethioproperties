@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import DecorativePattern from "@/components/DecorativePattern";
 import InteractiveCard from "@/components/InteractiveCard";
@@ -164,9 +163,7 @@ const Properties = () => {
     ];
 
     return (
-        <div className="min-h-screen flex flex-col bg-background selection:bg-primary/20">
-            <Navigation />
-
+        <div className="flex flex-col bg-background selection:bg-primary/20">
             {/* Hero Section - Service Focused */}
             <section className="relative pt-32 pb-20 overflow-hidden bg-primary/5">
                 <div className="absolute inset-0 z-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02]" />
@@ -408,8 +405,6 @@ const Properties = () => {
                     </div>
                 </div>
             </section>
-
-            <Footer />
         </div>
     );
 };

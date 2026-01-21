@@ -30,7 +30,7 @@ const steps = [
 
 const Process = () => {
   return (
-    <section className="py-24 px-6 bg-secondary/5 relative overflow-hidden">
+    <section className="py-24 px-6 bg-secondary/5 dark:bg-background relative overflow-hidden">
       <DecorativePattern variant="grid" opacity={0.05} />
 
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -58,7 +58,7 @@ const Process = () => {
                 <div className="hidden lg:block absolute top-12 left-[60%] w-full h-px bg-border/50" />
               )}
 
-              <div className="bg-background p-8 rounded-2xl relative z-10 h-full border border-border/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
+              <div className="bg-background dark:bg-card p-8 rounded-2xl relative z-10 h-full border border-border/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
                 <span className="text-6xl font-serif text-primary/10 absolute top-4 right-4 font-bold">
                   {step.number}
                 </span>

@@ -1,5 +1,3 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { Target, History, Award, User, PenTool, CheckCircle } from "lucide-react";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import InteractiveCard from "@/components/InteractiveCard";
@@ -11,8 +9,7 @@ const About = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-background selection:bg-primary/20">
-      <Navigation />
+    <div className="bg-background selection:bg-primary/20">
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
@@ -155,8 +152,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

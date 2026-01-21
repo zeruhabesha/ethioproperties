@@ -1,5 +1,3 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import {
   Building2,
   FileText,
@@ -73,8 +71,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-background selection:bg-primary/20">
-      <Navigation />
+    <div className="flex flex-col bg-background selection:bg-primary/20">
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
@@ -134,8 +131,6 @@ const Services = () => {
           </a>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { blogPosts } from "@/data/blogPosts";
 import DecorativePattern from "@/components/DecorativePattern";
 import { ArrowRight, BookOpen, Clock, User, Calendar } from "lucide-react";
@@ -16,8 +14,7 @@ const Blog = () => {
     : blogPosts.filter(post => post.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-background selection:bg-primary/20 flex flex-col">
-      <Navigation />
+    <div className="bg-background selection:bg-primary/20 flex flex-col">
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden bg-primary/5">
@@ -47,8 +44,8 @@ const Blog = () => {
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === category
-                    ? "bg-primary text-white shadow-md scale-105"
-                    : "bg-card border border-border/50 text-muted-foreground hover:border-secondary hover:text-secondary"
+                  ? "bg-primary text-white shadow-md scale-105"
+                  : "bg-card border border-border/50 text-muted-foreground hover:border-secondary hover:text-secondary"
                   }`}
               >
                 {category}
@@ -149,8 +146,6 @@ const Blog = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };
