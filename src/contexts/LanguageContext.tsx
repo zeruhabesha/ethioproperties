@@ -22,8 +22,8 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.list.property': 'List Your Property',
 
     // Hero
-    'hero.title': 'Discover Premium',
-    'hero.subtitle': 'Properties in Ethiopia',
+    'hero.title': 'Trust. Integrity.',
+    'hero.subtitle': 'Care.',
     'hero.tagline': 'Caring for What You Own',
     'hero.description': '',
     'hero.cta': 'View Properties',
@@ -258,8 +258,8 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.list.property': 'ንብረትዎን ይዘርዝሩ',
 
     // Hero
-    'hero.title': 'ፕሪሚየም ንብረቶችን',
-    'hero.subtitle': 'በኢትዮጵያ ያግኙ',
+    'hero.title': 'እምነት። ታማኝነት።',
+    'hero.subtitle': 'እንክብካቤ።',
     'hero.tagline': 'ያለዎትን እንንከባከባለን',
     'hero.description': '',
     'hero.cta': 'ንብረቶችን ይመልከቱ',

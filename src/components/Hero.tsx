@@ -44,7 +44,7 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="h-14 px-8 rounded-full text-lg font-semibold border-white text-white hover:bg-white/10 hover:text-white transition-all duration-300 backdrop-blur-sm"
+              className="h-14 px-8 rounded-full text-lg font-semibold border-white text-white bg-transparent hover:bg-white/10 hover:text-white transition-all duration-300 backdrop-blur-sm"
             >
               {t('hero.learn')}
             </Button>
