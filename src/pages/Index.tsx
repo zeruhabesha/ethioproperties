@@ -6,7 +6,6 @@ import About from "@/components/About";
 import Process from "@/components/Process";
 import FeaturedProperties from "@/components/FeaturedProperties";
 import ServicePackages from "@/components/ServicePackages";
-import Partners from "@/components/Partners";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
@@ -16,7 +15,6 @@ const Index = () => {
     <>
       <Hero />
       <div className="relative z-10 bg-background">
-        <Partners />
         <FeaturedProperties />
         <WhyChooseUs />
         <Services />

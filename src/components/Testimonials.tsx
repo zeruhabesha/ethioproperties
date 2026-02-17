@@ -1,23 +1,19 @@
-import { Star, Quote } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Star, Quote, User } from "lucide-react";
 
 const testimonials = [
     {
-        name: "Sarah Johnson",
+        name: "Almaz Tadesse",
         role: "Homeowner",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200",
         content: "Ethio Core Property made finding our dream home in Addis surprisingly easy. Their team was professional, transparent, and always available."
     },
     {
-        name: "Michael Chen",
+        name: "Dawit Bekele",
         role: "Investor",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
         content: "I've worked with many agencies, but the level of market insight and legal support provided here is unmatched. Highly recommended for investors."
     },
     {
-        name: "Dr. Abebe Kebede",
+        name: "Tigist Haile",
         role: "Villa Owner",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200",
         content: "Selling my property was stressful until I met the team at Ethio Core. They handled everything from valuation to closing with absolute professionalism."
     }
 ];
@@ -52,10 +48,9 @@ const Testimonials = () => {
                             </p>
 
                             <div className="flex items-center gap-4">
-                                <Avatar className="w-12 h-12">
-                                    <AvatarImage src={testimonial.image} alt={testimonial.name} />
-                                    <AvatarFallback>{testimonial.name[0]}</AvatarFallback>
-                                </Avatar>
+                                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <User className="w-6 h-6 text-primary" />
+                                </div>
                                 <div>
                                     <h4 className="font-bold text-foreground">{testimonial.name}</h4>
                                     <p className="text-sm text-secondary">{testimonial.role}</p>

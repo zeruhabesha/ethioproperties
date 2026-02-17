@@ -86,21 +86,21 @@ const Statistics = () => {
   const stats = [
     {
       icon: Building,
-      value: 250,
+      value: 50,
       suffix: '+',
       label: t('stats.properties') || "Properties in Ethiopia",
       description: t('stats.properties.desc') || "Across major cities"
     },
     {
       icon: Clock,
-      value: 6,
+      value: 2,
       suffix: '+',
       label: t('stats.years') || "Years in Ethiopian Market",
       description: t('stats.years.desc') || "Local expertise"
     },
     {
       icon: Users,
-      value: 95,
+      value: 90,
       suffix: '%',
       label: t('stats.satisfaction') || "Ethiopian Client Satisfaction",
       description: t('stats.satisfaction.desc') || "Trusted locally"
@@ -111,7 +111,7 @@ const Statistics = () => {
     <section className="py-24 px-6 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(var(--primary),0.1)_1px,transparent_1px)] [background-size:40px_40px] opacity-30" />
-      
+
       <div className="relative z-10 container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <span className="text-minimal opacity-80 mb-4 block">{t('stats.impact') || 'Our Ethiopian Impact'}</span>
@@ -119,17 +119,17 @@ const Statistics = () => {
             {t('stats.title') || 'Serving Ethiopia with Excellence'}
           </h2>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {stats.map((stat, index) => (
-            <div 
+            <div
               key={stat.label}
               className="text-center group relative"
               style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Glow Effect on Hover */}
               <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-75" />
-              
+
               <div className="relative bg-background/50 backdrop-blur-sm border border-border/20 rounded-2xl p-8 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:scale-105">
                 <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
                   <stat.icon className="w-6 h-6 text-primary" />

@@ -53,11 +53,11 @@ const Hero = () => {
           {/* Simplified Stats */}
           <div className="pt-12 flex items-center justify-center gap-12 text-white animate-slide-up [animation-delay:400ms]">
             <div className="text-center">
-              <div className="text-3xl font-bold">{t('hero.stats.listings') || '1200+'}</div>
+              <div className="text-3xl font-bold">{t('hero.stats.listings') || '50+'}</div>
               <div className="text-sm text-white/60 uppercase tracking-wider">{t('hero.stats.listings.label') || 'Listings'}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold">{t('hero.stats.clients') || '500+'}</div>
+              <div className="text-3xl font-bold">{t('hero.stats.clients') || '100+'}</div>
               <div className="text-sm text-white/60 uppercase tracking-wider">{t('hero.stats.clients.label') || 'Clients'}</div>
             </div>
             <div className="text-center">
